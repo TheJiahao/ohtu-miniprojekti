@@ -13,6 +13,8 @@
 
 - Käytä tyyppivihjeitä
 - Laita docstring-kommentit julkisille metodeille, käytä esim. [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)
+- Jos toteutat jotain, niin toteuta myös testit
+
 
 ### Git
 

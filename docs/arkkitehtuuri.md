@@ -28,7 +28,8 @@ Logic --> CiteRepository
 CiteRepository --> Database
 
 class Logic{
-    +create_cite(type: str, name: str)
+    +create_cite(type: str, name: str, fields: dict)
+    +get_all_cites()
 }
 
 class Cite {
@@ -40,10 +41,11 @@ class Cite {
 
 class CiteRepository {
     +add_cite(cite: Cite)
+    +get_all_cites()
 }
 
 class Database {
     +add_cite(cite: Cite)
+    +get_all_cites()
 }
-
 ```
