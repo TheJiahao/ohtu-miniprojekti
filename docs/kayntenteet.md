@@ -9,6 +9,11 @@
 
 ## Ohjelmointi
 
+### Yleistä
+
+- Käytä tyyppivihjeitä
+- Laita docstring-kommentit julkisille metodeille, käytä esim. [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)
+
 ### Git
 
 - Commit message: Käskymuodossa, kuten "Add jotain", "Fix jotain", "Implement jotain"

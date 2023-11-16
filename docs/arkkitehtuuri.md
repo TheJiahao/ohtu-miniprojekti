@@ -18,4 +18,32 @@ Logiikka --> Repository
 Repository --> Tietokanta
 ```
 
+## Luokkakaavio
 
+```mermaid
+classDiagram
+Ui --> Logic
+Logic --> Cite
+Logic --> CiteRepository
+CiteRepository --> Database
+
+class Logic{
+    +create_cite(type: str, name: str)
+}
+
+class Cite {
+    +name: str
+    +type: str
+    +fields: dict
+    +__str__()
+}
+
+class CiteRepository {
+    +add_cite(cite: Cite)
+}
+
+class Database {
+    +add_cite(cite: Cite)
+}
+
+```
