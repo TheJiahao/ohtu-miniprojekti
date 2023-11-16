@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "ohtu-miniprojekti"
 version = "0.1.0"
-description = "BibTeX-viitteinen hallintaohjelma"
+description = "BibTeX-viitteiden hallintaohjelma"
 authors = ["Essi, Jiahao, Onni, Ronja, Sanni"]
 readme = "README.md"
 
