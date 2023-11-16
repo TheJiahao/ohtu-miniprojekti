@@ -1,6 +1,6 @@
 # Arkkitehtuuri
 
-Sovellus noudattaa [Repository](https://ohjelmistotekniikka-hy.github.io/python/toteutus#repository-suunnittelumalli) mallia
+Sovellus noudattaa [Repository](https://ohjelmistotekniikka-hy.github.io/python/toteutus#repository-suunnittelumalli) mallia.
 Sovelluksen koodit on jaettu/luokitettu neljään kerrokseen:
 
 - Käyttöliittymä
