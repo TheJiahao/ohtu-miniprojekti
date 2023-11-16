@@ -1,0 +1,17 @@
+# Käytänteet
+
+## Työskentelytavat
+
+- **Daily scrum**: Discord-kanavalle "Daily scrum". Lyhyesti oman työskentelypäivän jälkeen vastaukset seuraaviin kysymyksiin:
+  - Mitä sain aikaan päivän aikana?
+  - Mitä aion saada aikaan seuraavaan daily scrumiin mennessä?
+  - Mitä esteitä etenemiselläni on?
+
+## Ohjelmointi
+
+### Git
+
+- Commit message: Käskymuodossa, kuten "Add jotain", "Fix jotain", "Implement jotain"
+- Tee user storyyn liittyvät muutokset omaan user story-haaraan, esim. `us1`, `us2`, jne.
+  - Kun user story on valmis definition of donen tasolla, niin pull requestilla takaisin `main`-haaraan
+  - Alustavasti: Pull requestit voi itse hyväksyä
