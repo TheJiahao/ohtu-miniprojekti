@@ -11,7 +11,7 @@ class Cite:
         """Luokan konstruktori
 
         Args:
-            name (str): nimi
+            name (str): nimi.
             type (str): Viitteen tyyppi.
             fields (dict): Viitteen kentät.
         """
@@ -19,3 +19,13 @@ class Cite:
         self.name: str = name
         self.type: str = type
         self.fields: dict = fields
+
+    def __str__(self) -> str:
+        """Palauttaa luokan merkkijonona
+
+        Returns:
+            str: Luokka merkkijonona.
+        """
+
+        # Väliaikainen! Pitää miettiä tälle yhdessä esitysmuoto
+        return f"{self.name} - {self.fields}"
