@@ -22,7 +22,7 @@ jobs:
             - name: Run tests
               run: poetry run coverage run --branch -m pytest
             - name: Coverage report
-              run: coverage xml
+              run: poetry run coverage xml
             - name: Upload coverage reports to Codecov
               run: |
                   curl -Os https://uploader.codecov.io/latest/linux/codecov
