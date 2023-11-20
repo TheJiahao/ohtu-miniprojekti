@@ -1,8 +1,17 @@
 class App:
-    def __init__(self, logic):
+        """Alustaa olion
+
+        Args:
+            io (object): konsoli io
+            logic (object): sovelluslogiikka
+        """
+
         self.logic = logic
 
     def run(self):
+        """Käynnistää sovelluksen
+        """
+
         while True:
             choice = self.choose_action()
             if choice == 2:
@@ -13,6 +22,11 @@ class App:
                 break
 
     def choose_action(self):
+        """Käyttäjä voi valita toiminnon
+
+        Returns:
+            int: Valittua toimintoa vastaava numero
+        """
         print("\nValitse toiminto:\n")
         print("0: lopeta")
         print("1: näytä viitteet")
@@ -21,6 +35,11 @@ class App:
         return int(input())
 
     def add_cite(self):
+        """Lisää viite
+
+        Returns:
+            str: Kertoo käyttäjälle onnistuiko lisäys
+        """
         fields = {}
 
         print("\nValitse viitetyyppi:\n")
