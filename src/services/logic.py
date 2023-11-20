@@ -6,6 +6,12 @@ class Logic:
     """Sovelluslogiikasta vastaava luokka."""
 
     def __init__(self, repository=cite_repository):
+        """Luokan konstruktori
+
+        Args:
+            repository (CiteRepository, optional): CiteRepository olio, oletuksena cite_repository.py:n sisällä luotu
+        """
+
         self.repository = repository
 
     def create_cite(self, type: str, name: str, fields: dict):

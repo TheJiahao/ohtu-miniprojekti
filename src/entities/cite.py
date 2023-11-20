@@ -1,4 +1,4 @@
-class Cite: # pylint: disable=too-few-public-methods
+class Cite:  # pylint: disable=too-few-public-methods
     """Luokka, joka kuvaa viitettä.
 
     Attributes:
