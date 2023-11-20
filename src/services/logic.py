@@ -1,11 +1,13 @@
-from cite import Cite
-from citerepository import CiteRepository
+from entities.cite import Cite
+
 
 class Logic:
     """Sovelluslogiikasta vastaava luokka.
     """
+
     def __init__(self):
-        self.repository = CiteRepository()
+        # self.repository = CiteRepository()
+        pass
 
     def create_cite(self, type: str, name: str, fields: dict):
         """Lisää uuden viitteen.
@@ -20,8 +22,7 @@ class Logic:
         """
         cite = Cite(name, type, fields)
         try:
-            self.repository.add_cite(cite)
+            # self.repository.add_cite(cite)
             return "Cite added"
         except Exception:
             return "Error"
-            
