@@ -10,7 +10,8 @@ class CiteRepository:
         self.db.add_cite(cite)
 
     def get_all_cites(self) -> list[Cite]:
-        return self.db.get_all_cites()
+        # return self.db.get_all_cites()
+        pass
 
 
 cite_repository = CiteRepository()
