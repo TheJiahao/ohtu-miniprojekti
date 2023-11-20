@@ -9,7 +9,8 @@ class Logic:
         """Luokan konstruktori
 
         Args:
-            repository (CiteRepository, optional): CiteRepository olio, oletuksena cite_repository.py:n sisällä luotu
+            repository (CiteRepository, optional): CiteRepository olio,
+            oletuksena cite_repository.py:n sisällä luotu
         """
 
         self.repository = repository
