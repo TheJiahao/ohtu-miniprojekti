@@ -21,7 +21,7 @@ class SQLiteDB:
             CREATE TABLE IF NOT EXISTS cites (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT,
-                type TEXT,
+                entry_type TEXT,
                 fields TEXT
             )
         """
@@ -34,17 +34,19 @@ class SQLiteDB:
         """Lisää lähteen tietokantaan
 
         Args:
-            cite (Cite): Lähde olio.
+            cite (Cite): Lähde oliona.
         """
+
         cursor = self.connection.cursor()
-        cursor.execute(
-            "INSERT INTO cites (name, entry_type, fields) VALUES (?, ?, ?)",
-            cite.name,
-            cite.entry_type,
-            cite.fields,
-        )
+        sql = "INSERT INTO cites (name, entry_type, fields) VALUES (?, ?, ?)"
+        data = (cite.name, cite.entry_type, str(cite.fields))
+
+        cursor.execute(sql, data)
         self.connection.commit()
         cursor.close()
+
+    def get_all_cites(self) -> list:
+        pass
 
 
 database = SQLiteDB("data/citations.db")
