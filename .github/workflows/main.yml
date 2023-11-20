@@ -5,13 +5,13 @@ on:
         branches: main
 
 jobs:
-    setup:
-      uses: ./.github/workflows/setup.yml
-
     test:
         runs-on: ubuntu-latest
 
         steps:
+            - uses: actions/checkout@v4
+            - name: Set up
+              uses: ./setup-action
             - name: Run tests
               run: poetry run coverage run --branch -m pytest
             - name: Coverage report
