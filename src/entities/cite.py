@@ -17,7 +17,7 @@ class Cite:
         """
 
         self.name: str = name
-        self.type: str = entry_type
+        self.entry_type: str = entry_type
         self.fields: dict = fields
 
     def __str__(self) -> str:
