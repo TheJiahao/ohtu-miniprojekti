@@ -47,4 +47,4 @@ class SQLiteDB:
         cursor.close()
 
 
-database = SQLiteDB("citations.db")
+database = SQLiteDB("data/citations.db")
