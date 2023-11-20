@@ -10,5 +10,7 @@ runs:
               python-version: "3.11"
         - name: Install Poetry
           run: pip install poetry
+          shell: bash
         - name: Install dependencies
           run: poetry install
+          shell: bash
