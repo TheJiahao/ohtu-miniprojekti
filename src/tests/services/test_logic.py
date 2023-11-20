@@ -8,5 +8,5 @@ class TestCite(unittest.TestCase):
         self.logic = Logic()
 
     def test_create_cite(self):
-        create = self.logic.create_cite(self)
+        create = self.logic.create_cite("book", "Test", {"name":"Test1", "author":"Test Test", "year":1900 })
         self.assertEqual(create, "Cite added")
