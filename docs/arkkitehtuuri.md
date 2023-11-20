@@ -34,7 +34,7 @@ class Logic{
 
 class Cite {
     +name: str
-    +type: str
+    +entry_type: str
     +fields: dict
     +__str__()
 }
