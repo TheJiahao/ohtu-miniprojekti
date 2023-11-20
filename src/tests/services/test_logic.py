@@ -1,5 +1,5 @@
 import unittest
-
+from services.logic import Logic
 from entities.cite import Cite
 
 
