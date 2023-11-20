@@ -27,5 +27,4 @@ class Cite:
             str: Luokka merkkijonona.
         """
 
-        # Väliaikainen! Pitää miettiä tälle yhdessä esitysmuoto
-        return f"{self.name} - {self.fields}"
+        return f"{self.name} - {self.entry_type} - {self.fields}"
