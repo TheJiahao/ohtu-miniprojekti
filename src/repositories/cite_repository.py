@@ -9,9 +9,9 @@ class CiteRepository:
     def add_cite(self, cite: Cite) -> None:
         self.db.add_cite(cite)
 
-    def get_all_cites(self) -> list[Cite]:
-        # return self.db.get_all_cites()
-        pass
+    # def get_all_cites(self) -> list[Cite]:
+    #     return self.db.get_all_cites()
+    #     pass
 
 
 cite_repository = CiteRepository()

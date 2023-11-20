@@ -45,8 +45,8 @@ class SQLiteDB:
         self.connection.commit()
         cursor.close()
 
-    def get_all_cites(self) -> list:
-        pass
+    # def get_all_cites(self) -> list:
+    #     pass
 
 
 database = SQLiteDB("data/citations.db")
