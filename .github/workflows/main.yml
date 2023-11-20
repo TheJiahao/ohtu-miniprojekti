@@ -20,7 +20,7 @@ jobs:
               uses: codecov/codecov-action@v3
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-    
+
     Lint:
         runs-on: ubuntu-latest
         steps:
@@ -30,15 +30,15 @@ jobs:
             - name: Run pylint
               run: poetry run pylint src
 
-    Format:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v4
-          - name: Set up
-            uses: ./setup-action
-          - name: Format code
-            run: poetry run black src && poetry run isort --profile black .
-          - name: Git add, commit and push
-            uses: EndBug/add-and-commit@v9
-            with:
-              message: Format code
+#    Format:
+#        runs-on: ubuntu-latest
+#        steps:
+#          - uses: actions/checkout@v4
+#          - name: Set up
+#            uses: ./setup-action
+#          - name: Format code
+#            run: poetry run black src && poetry run isort --profile black .
+#          - name: Git add, commit and push
+#            uses: EndBug/add-and-commit@v9
+#            with:
+#              message: Format code
