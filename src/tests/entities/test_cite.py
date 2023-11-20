@@ -1,6 +1,7 @@
-import unittest
 
 from entities.cite import Cite
+
+import unittest
 
 
 class TestCite(unittest.TestCase):

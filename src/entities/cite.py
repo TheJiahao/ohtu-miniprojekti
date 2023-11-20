@@ -18,4 +18,4 @@ class Cite:
 
         self.name: str = name
         self.type: str = type
-        self.fields: dict = fields
+        self.fields: dict =  fields
