@@ -2,7 +2,7 @@ from entities.cite import Cite
 from infrastructure.database import database
 
 
-class CiteRepository:
+class CiteRepository: # pylint: disable=too-few-public-methods
     def __init__(self, db=database) -> None:
         self.db = db
 
