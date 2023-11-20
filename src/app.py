@@ -11,8 +11,7 @@ class App:
         self.io = io
 
     def run(self):
-        """Käynnistää sovelluksen
-        """
+        """Käynnistää sovelluksen"""
 
         while True:
             choice = self.choose_action()

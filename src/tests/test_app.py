@@ -21,7 +21,8 @@ class TestApp(unittest.TestCase):
         self.logic = Logic()
 
     def test_choose_action_palauttaa_valinnan_inttinä(self):
-        io = StubIO(["1", "Testi viitenimi", [
-                    "Matti", "Pekka"], "Testi otsikko", "1621"])
+        io = StubIO(
+            ["1", "Testi viitenimi", ["Matti", "Pekka"], "Testi otsikko", "1621"]
+        )
         app = App(io, self.logic)
         self.assertEqual(app.choose_action(), 1)

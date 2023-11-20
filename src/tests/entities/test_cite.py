@@ -14,5 +14,6 @@ class TestCite(unittest.TestCase):
 
     def test_cite_str(self):
         self.assertEqual(
-            str(self.cite), "amazing article - article - {'year': 3202, 'author': 'Someone'}"
+            str(self.cite),
+            "amazing article - article - {'year': 3202, 'author': 'Someone'}",
         )
