@@ -1,15 +1,16 @@
-from src.entities.cite import Cite
+from entities.cite import Cite
+from infrastructure.database import database
 
 
 class CiteRepository:
-    def __init__(self, db) -> None:
-        # self.db = db
-        pass
+    def __init__(self, db=database) -> None:
+        self.db = db
 
     def add_cite(self, cite: Cite) -> None:
-        # db.add_cite(cite)
-        pass
+        self.db.add_cite(cite)
 
     def get_all_cites(self) -> list[Cite]:
-        # return self.db.get_all_cites()
-        pass
+        return self.db.get_all_cites()
+
+
+cite_repository = CiteRepository()
