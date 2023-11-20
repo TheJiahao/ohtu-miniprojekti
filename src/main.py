@@ -1,10 +1,12 @@
 from services.logic import Logic
 from app import App
+from console_io import ConsoleIO
 
 
 def main():
     logic = Logic()
-    app = App(logic)
+    io = ConsoleIO()
+    app = App(io, logic)
 
     app.run()
 
