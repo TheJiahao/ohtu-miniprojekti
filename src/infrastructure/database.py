@@ -11,6 +11,7 @@ class SQLiteDB:
             db_path (str): Tietokannan sijainti.
         """
         self.connection = sqlite3.connect(db_path)
+        self.create_table()
 
     def create_table(self) -> None:
         """Luo tietokantaan taulun, jos sitä ei ole olemassa"""
@@ -44,3 +45,6 @@ class SQLiteDB:
         )
         self.connection.commit()
         cursor.close()
+
+
+database = SQLiteDB("citations.db")
