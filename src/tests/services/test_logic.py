@@ -9,15 +9,10 @@ class TestCite(unittest.TestCase):
         self.logic = Logic(self.repository_mock)
 
     def test_create_cite(self):
-        self.repository_mock.add_cite()
         create = self.logic.create_cite("book", 123, {"year": 1900, "author": "Hello"})
         self.assertEqual(create, "Cite added")
 
-    def test_get_cites(self):
-        self.logic.create_cite(
-            "book", "Test", {"name": "Test1", "author": "Test Test", "year": 1900}
-        )
-
-        cites = self.logic.get_cites()
-        self.assertEqual(cites, ('book',))
-        
+    def test_logic_get_all_cites(self):
+        self.repository_mock.get_cites.return_value = "cites"
+        get_all = self.logic.get_all_cites()
+        self.assertEqual(get_all, "cites")

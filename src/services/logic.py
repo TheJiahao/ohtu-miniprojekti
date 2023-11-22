@@ -31,7 +31,7 @@ class Logic:
         self.repository.add_cite(cite)
         return "Cite added"
 
-    def get_cites(self):
+    def get_all_cites(self):
         cites = self.repository.get_cites()
         print(cites)
         return cites
