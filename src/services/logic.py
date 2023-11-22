@@ -34,3 +34,11 @@ class Logic:
             return "Cite added"
         except Exception:
             return "Error"
+        
+    def get_cites(self):
+        try:
+            cites = self.repository.get_cites()
+            print(cites)
+            return cites
+        except Exception:
+            return "Error"

@@ -18,6 +18,10 @@ class App:
             if choice == 2:
                 added_cite = self.add_cite()
                 print(f"\n{added_cite}")
+            elif choice == 1:
+                cites = self.get_cites()
+                for cite in cites:
+                    print(f"\n{cite[0]}")
             else:
                 print("Toimintoa ei olemassa tai ei toteutettu vielä.")
                 break
@@ -63,3 +67,12 @@ class App:
         fields["year"] = int(self.io.read())
 
         return self.logic.create_cite(cite_type, cite_name, fields)
+    
+    def get_cites(self):
+        """palauttaa kaikki viitteet
+
+        Returns:
+            list: kaikki citet omissa listoissaan
+        """
+        cites = self.logic.get_cites()
+        return cites

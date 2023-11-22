@@ -48,5 +48,13 @@ class SQLiteDB:
     # def get_all_cites(self) -> list:
     #     pass
 
+    def get_cites(self):
+        """Hakee kaikki tietokannassa olevat viitteet"""
+        cursor = self.connection.cursor()
+        sql = "SELECT name FROM cites"
+        cites = cursor.execute(sql).fetchall()
+        cursor.close()
+        return cites
+
 
 database = SQLiteDB("data/citations.db")

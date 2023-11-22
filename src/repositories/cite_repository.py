@@ -27,6 +27,10 @@ class CiteRepository:  # pylint: disable=too-few-public-methods
     #     return self.db.get_all_cites()
     #     pass
 
+    def get_cites(self):
+        cites = self.db.get_cites()
+        return cites
+
 
 # muissa moduuleissa käytettävä olio
 cite_repository = CiteRepository()
