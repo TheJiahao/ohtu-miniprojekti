@@ -67,7 +67,7 @@ class App:
         fields["year"] = int(self.io.read())
 
         return self.logic.create_cite(cite_type, cite_name, fields)
-    
+
     def get_cites(self):
         """palauttaa kaikki viitteet
 
