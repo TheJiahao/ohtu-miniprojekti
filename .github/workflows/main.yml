@@ -3,22 +3,16 @@ on:
     push:
     pull_request:
         branches: main
+    workflow_dispatch:
 
 jobs:
-    test:
+    Test:
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v4
-            - name: Set up Python 3.11
-              uses: actions/setup-python@v4
-              with:
-                  python-version: "3.11"
-            - name: Install Poetry
-              run: pip install poetry
-            - name: Install dependencies
-              run: poetry install
-
+            - name: Set up
+              uses: ./setup-action
             - name: Run tests
               run: poetry run coverage run --branch -m pytest
             - name: Coverage report
@@ -26,4 +20,26 @@ jobs:
             - name: Upload coverage reports to Codecov
               uses: codecov/codecov-action@v3
               env:
-                CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+                  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+    Lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Set up
+              uses: ./setup-action
+            - name: Run pylint
+              run: poetry run pylint src
+
+#    Format:
+#        runs-on: ubuntu-latest
+#        steps:
+#          - uses: actions/checkout@v4
+#          - name: Set up
+#            uses: ./setup-action
+#          - name: Format code
+#            run: poetry run black src && poetry run isort --profile black .
+#          - name: Git add, commit and push
+#            uses: EndBug/add-and-commit@v9
+#            with:
+#              message: Format code
