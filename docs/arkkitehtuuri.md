@@ -9,7 +9,7 @@ Sovelluksen koodit on jaettu/luokitettu neljään kerrokseen:
   Esim. `Viite`-luokalle `ViiteRepository`.
 - Infrastruktuuri: Abstrahoi alimman tason operaatiot, esim. tietokantaoperaatiot tai tiedoston luku.
 
-Hahmotelma mallista
+## Hahmotelma mallista
 
 ```mermaid
 classDiagram
@@ -34,7 +34,7 @@ class Logic{
 
 class Cite {
     +name: str
-    +type: str
+    +entry_type: str
     +fields: dict
     +__str__()
 }
@@ -48,4 +48,15 @@ class Database {
     +add_cite(cite: Cite)
     +get_all_cites()
 }
+```
+
+## SQL-skeema
+
+```SQL
+CREATE TABLE IF NOT EXISTS cites (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    entry_type TEXT,
+    fields TEXT
+);
 ```
