@@ -28,17 +28,10 @@ class Logic:
         """
 
         cite = Cite(name, type, fields)
+        self.repository.add_cite(cite)
+        return "Cite added"
 
-        try:
-            self.repository.add_cite(cite)
-            return "Cite added"
-        except Exception:
-            return "Error"
-        
     def get_cites(self):
-        try:
-            cites = self.repository.get_cites()
-            print(cites)
-            return cites
-        except Exception:
-            return "Error"
+        cites = self.repository.get_cites()
+        print(cites)
+        return cites

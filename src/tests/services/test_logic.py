@@ -21,7 +21,3 @@ class TestCite(unittest.TestCase):
         cites = self.logic.get_cites()
         self.assertEqual(cites, ('book',))
         
-    def test_create_cite_error(self):
-        self.repository_mock.add_cite.side_effect = Exception()
-        create = self.logic.create_cite("book", 123, {"year": 1900, "author": "Hello"})
-        self.assertEqual(create, "Error")
