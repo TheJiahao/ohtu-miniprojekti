@@ -1,5 +1,10 @@
 {
     "python.testing.cwd": "${workspaceFolder}/src",
+    "python.envFile": "${workspaceFolder}/.env.test",
+    "python.testing.pytestArgs": [
+        "-c",
+        "${workspaceFolder}/pytest.ini"
+    ],
     "isort.args": [
         "--profile=black"
     ],
