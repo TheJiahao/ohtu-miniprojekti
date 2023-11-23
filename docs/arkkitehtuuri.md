@@ -23,13 +23,21 @@ Repository --> Tietokanta
 ```mermaid
 classDiagram
 Ui --> Logic
+
 Logic --> Cite
 Logic --> CiteRepository
+Logic --> ExportService
+Logic --> CiteValidator
+
+ExportService --> BibtexExporter
+ExportService ..> Cite
+
 CiteRepository --> Database
 
 class Logic{
     +create_cite(type: str, name: str, fields: dict)
     +get_all_cites()
+    +export(path: str, format: str, cites: list[Cite])
 }
 
 class Cite {
@@ -47,6 +55,18 @@ class CiteRepository {
 class Database {
     +add_cite(cite: Cite)
     +get_all_cites()
+}
+
+class BibtexExporter {
+    +export(path: str, cites: list[Cite])
+}
+
+class ExportService {
+    +export(path: str, format: str, cites: list[Cite])
+}
+
+class CiteValidator {
+    +get_fields(type: str)
 }
 ```
 
