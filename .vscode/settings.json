@@ -1,0 +1,11 @@
+{
+    "python.testing.cwd": "${workspaceFolder}/src",
+    "isort.args": [
+        "--profile=black"
+    ],
+    "pylint.cwd": "${workspaceFolder}/src",
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "pylint.args": [
+        "--rcfile=${workspaceFolder}/.pylintrc"
+    ]
+}
