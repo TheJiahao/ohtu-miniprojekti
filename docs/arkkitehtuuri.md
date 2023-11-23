@@ -28,9 +28,13 @@ Logic --> Cite
 Logic --> CiteRepository
 Logic --> ExportService
 Logic --> CiteValidator
+Logic --> FilterService
 
 ExportService --> BibtexExporter
 ExportService ..> Cite
+
+FilterService --> CiteRepository
+FilterService ..> Cite
 
 CiteRepository --> Database
 
@@ -38,11 +42,12 @@ class Logic{
     +create_cite(type: str, name: str, fields: dict)
     +get_all_cites()
     +export(path: str, format: str, cites: list[Cite])
+    +remove_cite(id: str)
 }
 
 class Cite {
-    +name: str
-    +entry_type: str
+    +id: str
+    +type: str
     +fields: dict
     +__str__()
 }
@@ -50,6 +55,7 @@ class Cite {
 class CiteRepository {
     +add_cite(cite: Cite)
     +get_all_cites()
+    +remove_cite(id: str)
 }
 
 class Database {
@@ -67,6 +73,12 @@ class ExportService {
 
 class CiteValidator {
     +get_fields(type: str)
+}
+
+class FilterService {
+    +filter_by_name(name: str, )
+    +filter_by_author(author: str)
+    +filter_by_tag(tag: str)
 }
 ```
 
