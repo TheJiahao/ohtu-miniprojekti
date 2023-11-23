@@ -1,43 +1,56 @@
-import os
-import pytest
-from infrastructure.database import SQLiteDB
-from entities.cite import Cite
+import unittest
+
+from infrastructure.database import database
 
 
-@pytest.fixture
-def test_db():
-    db = SQLiteDB("test.db")
-    yield db
+class TestDatabase(unittest.TestCase):
+    def setUp(self) -> None:
+        self.connection = database.connection
+        self.cursor = database.cursor
 
-    db.connection.close()
-    os.remove("test.db")
+        return database.drop_tables()
 
+    def test_create_tables(self):
+        database.create_tables()
 
-def test_file_gets_created(test_db):
-    assert os.path.exists("test.db")
+        rows = self.cursor.execute(
+            """
+            SELECT name
+            FROM sqlite_master
+            WHERE type="table"
+            """
+        ).fetchall()
 
+        tables = {row["name"] for row in rows}
 
-def test_db_init_connection(test_db):
-    assert test_db.connection is not None
+        self.assertEqual(tables, {"Cites", "Fields"})
 
+    def test_drop_tables(self):
+        self.cursor.execute("CREATE TABLE Cites (test TEXT PRIMARY KEY)")
 
-def test_db_init_create_table(test_db):
-    cursor = test_db.connection.cursor()
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='cites'")
-    table = cursor.fetchone()
-    cursor.close()
+        database.drop_tables()
 
-    assert table is not None
+        rows = self.cursor.execute(
+            """
+            SELECT name
+            FROM sqlite_master
+            WHERE type="table"
+            """
+        ).fetchall()
 
+        self.assertEqual(rows, [])
 
-def test_db_add_cite(test_db):
-    cite = Cite("testiA", "testiB", "testiC")
-    test_db.add_cite(cite)
-    cursor = test_db.connection.cursor()
+    def test_initialize_database(self):
+        database.initialize()
 
-    cursor.execute("SELECT * FROM cites WHERE name = ?", (cite.name,))
-    result = cursor.fetchone()
-    cursor.close()
+        rows = self.cursor.execute(
+            """
+            SELECT name
+            FROM sqlite_master
+            WHERE type="table"
+            """
+        ).fetchall()
 
-    assert result is not None
-    assert result[1] == cite.name
+        tables = {row["name"] for row in rows}
+
+        self.assertEqual(tables, {"Cites", "Fields"})

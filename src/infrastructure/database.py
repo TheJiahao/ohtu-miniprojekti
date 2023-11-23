@@ -1,60 +1,63 @@
-import sqlite3
+import os
+from sqlite3 import Connection, Cursor, Row, connect
+
+from config import DATABASE_FILE_PATH
 
 
-class SQLiteDB:
-    """Luokka vastaa yhteydestä tietokantaan"""
+class Database:
+    """Luokka, joka vastaa tietokantayhteydestä ja tietokannan alustuksesta."""
 
-    def __init__(self, db_path: str) -> None:
-        """Luokan konstruktori
+    def __init__(self) -> None:
+        """Luokan konstruktori."""
+        self.connection: Connection = connect(DATABASE_FILE_PATH)
+        self.connection.row_factory = Row
+        self.cursor: Cursor = self.connection.cursor()
 
-        Args:
-            db_path (str): Tietokannan sijainti.
-        """
-        self.connection = sqlite3.connect(db_path)
-        self.create_table()
+        if os.path.getsize(DATABASE_FILE_PATH) == 0:
+            self.initialize()
 
-    def create_table(self) -> None:
+    def create_tables(self) -> None:
         """Luo tietokantaan taulun, jos sitä ei ole olemassa"""
 
-        cursor = self.connection.cursor()
-        sql = """
-            CREATE TABLE IF NOT EXISTS cites (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT,
-                entry_type TEXT,
-                fields TEXT
+        self.cursor.execute(
+            """
+            CREATE TABLE Cites (
+            id TEXT PRIMARY KEY,
+            type TEXT
             )
-        """
+            """
+        )
 
-        cursor.execute(sql)
+        self.cursor.execute(
+            """
+            CREATE TABLE Fields (
+                cite_id TEXT REFERENCES Cites,
+                name TEXT,
+                content TEXT
+            )
+            """
+        )
+
         self.connection.commit()
-        cursor.close()
 
-    def add_cite(self, cite) -> None:
-        """Lisää lähteen tietokantaan
+    def drop_tables(self) -> None:
+        self.cursor.execute(
+            """
+            DROP TABLE IF EXISTS Cites
+            """
+        )
 
-        Args:
-            cite (Cite): Lähde oliona.
-        """
+        self.cursor.execute(
+            """
+            DROP TABLE IF EXISTS Fields
+            """
+        )
 
-        cursor = self.connection.cursor()
-        sql = "INSERT INTO cites (name, entry_type, fields) VALUES (?, ?, ?)"
-        data = (cite.name, cite.entry_type, str(cite.fields))
-
-        cursor.execute(sql, data)
         self.connection.commit()
-        cursor.close()
 
-    # def get_all_cites(self) -> list:
-    #     pass
-
-    def get_cites(self):
-        """Hakee kaikki tietokannassa olevat viitteet"""
-        cursor = self.connection.cursor()
-        sql = "SELECT name FROM cites"
-        cites = cursor.execute(sql).fetchall()
-        cursor.close()
-        return cites
+    def initialize(self) -> None:
+        self.drop_tables()
+        self.create_tables()
 
 
-database = SQLiteDB("data/citations.db")
+database = Database()
