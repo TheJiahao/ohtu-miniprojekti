@@ -59,8 +59,7 @@ class CiteRepository {
 }
 
 class Database {
-    +add_cite(cite: Cite)
-    +get_all_cites()
+    +connection: sqlite3.Connection
 }
 
 class BibtexExporter {
@@ -85,10 +84,14 @@ class FilterService {
 ## SQL-skeema
 
 ```SQL
-CREATE TABLE IF NOT EXISTS cites (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE Cites (
+    id TEXT PRIMARY KEY,
+    type TEXT
+)
+
+CREATE TABLE Fields (
+    cite_id TEXT REFERENCES Cites,
     name TEXT,
-    entry_type TEXT,
-    fields TEXT
-);
+    content TEXT
+)
 ```
