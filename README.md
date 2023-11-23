@@ -1,3 +1,4 @@
+[![CI](https://github.com/TheJiahao/ohtu-miniprojekti/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/TheJiahao/ohtu-miniprojekti/actions/workflows/main.yml)
 [![codecov](https://codecov.io/github/TheJiahao/ohtu-miniprojekti/graph/badge.svg?token=Y8K1WUURTT)](https://codecov.io/github/TheJiahao/ohtu-miniprojekti)
 
 # ohtu-miniprojekti
