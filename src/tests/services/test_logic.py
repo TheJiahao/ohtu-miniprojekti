@@ -1,6 +1,7 @@
 import unittest
-from services.logic import Logic
 from unittest.mock import Mock
+
+from services.logic import Logic
 
 
 class TestCite(unittest.TestCase):

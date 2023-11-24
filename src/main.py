@@ -1,6 +1,6 @@
-from services.logic import Logic
 from app import App
 from console_io import ConsoleIO
+from services.logic import Logic
 
 
 def main():
