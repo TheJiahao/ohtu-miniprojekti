@@ -8,20 +8,26 @@ class Cite:  # pylint: disable=too-few-public-methods
         fields (dict): Viitteen kentät.
     """
 
-    def __init__(self, id: str, type: str, authors: list[str] = [], fields: dict = {}) -> None:
+    def __init__(
+        self,
+        id: str,
+        type: str,
+        authors: list[str] | None = None,
+        fields: dict | None = None,
+    ) -> None:
         """Luokan konstruktori
 
         Args:
             id (str): Viitteen tunnus.
             type (str): Viitteen tyyppi.
-            authors: (list[str]): Viitteen tekijät.
-            fields (dict): Viitteen kentät.
+            authors: (list[str] | None): Viitteen tekijät.
+            fields (dict | None): Viitteen kentät.
         """
 
         self.id: str = id
         self.type: str = type
-        self.authors: list[str] = authors
-        self.fields: dict = fields
+        self.authors: list[str] = authors or []
+        self.fields: dict = fields or {}
 
     def __str__(self) -> str:
         """Palauttaa luokan merkkijonona

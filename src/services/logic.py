@@ -32,7 +32,13 @@ class Logic:
         self.repository.add_cite(cite)
         return "Cite added"
 
-    def get_all_cites(self):
+    def get_all_cites(self) -> list[Cite]:
+        """Palauttaa kaikki viitteet.
+
+        Returns:
+            list[Cite]: Lista, joka sisältää kaikki viitteet.
+        """
+
         cites = self.repository.get_cites()
         print(cites)
         return cites

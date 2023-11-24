@@ -1,4 +1,6 @@
 class App:
+    """Luokka, joka vastaa käyttöliittymästä."""
+
     def __init__(self, io, logic):
         """Alustaa olion
 
