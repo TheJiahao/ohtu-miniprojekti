@@ -2,22 +2,22 @@ class Cite:  # pylint: disable=too-few-public-methods
     """Luokka, joka kuvaa viitettä.
 
     Attributes:
-        name (str): Viitteen nimi.
-        entry_type (str): Viitteen tyyppi.
+        id (str): Viitteen tunnus.
+        type (str): Viitteen tyyppi.
         fields (dict): Viitteen kentät.
     """
 
-    def __init__(self, name: str, entry_type: str, fields: dict) -> None:
+    def __init__(self, id: str, type: str, fields: dict) -> None:
         """Luokan konstruktori
 
         Args:
-            name (str): nimi.
-            entry_type (str): Viitteen tyyppi.
+            id (str): Viitteen tunnus.
+            type (str): Viitteen tyyppi.
             fields (dict): Viitteen kentät.
         """
 
-        self.name: str = name
-        self.entry_type: str = entry_type
+        self.id: str = id
+        self.type: str = type
         self.fields: dict = fields
 
     def __str__(self) -> str:
@@ -27,4 +27,4 @@ class Cite:  # pylint: disable=too-few-public-methods
             str: Luokka merkkijonona.
         """
 
-        return f"{self.name} - {self.entry_type} - {self.fields}"
+        return f"{self.id} - {self.type} - {self.fields}"
