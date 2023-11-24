@@ -10,7 +10,7 @@ class TestCiteRepository(unittest.TestCase):
         self.repository = CiteRepository(db=self.mock_db)
 
     def test_init(self):
-        assert self.repository.db is not None
+        self.assertIsNotNone(self.repository)
 
     def test_add_cite(self):
         cite = Cite("repo_add_cite", "testiB", "testiC")
