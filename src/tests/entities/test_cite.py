@@ -4,16 +4,23 @@ from entities.cite import Cite
 
 
 class TestCite(unittest.TestCase):
-    def setUp(self):
-        self.cite = Cite(
-            "amazing article", "article", {"year": 3202, "author": "Someone"}
+    def test_cite_can_be_initialized(self):
+        Cite(
+            "amazing article",
+            "article",
+            ["Alice", "Bob"],
+            {"year": 3202, "author": "Someone"},
         )
 
-    def test_cite_can_be_initialized(self):
-        Cite("amazing article", "article", {"year": 3202, "author": "Someone"})
-
     def test_cite_str(self):
+        cite = Cite(
+            "amazing article",
+            "article",
+            ["Alice", "Bob"],
+            {"year": 3202, "author": "Someone"},
+        )
+
         self.assertEqual(
-            str(self.cite),
-            "amazing article - article - {'year': 3202, 'author': 'Someone'}",
+            str(cite),
+            "amazing article - article - ['Alice', 'Bob'] - {'year': 3202, 'author': 'Someone'}",
         )

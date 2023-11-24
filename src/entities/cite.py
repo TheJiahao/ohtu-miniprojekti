@@ -30,4 +30,4 @@ class Cite:  # pylint: disable=too-few-public-methods
             str: Luokka merkkijonona.
         """
 
-        return f"{self.id} - {self.type} - {self.fields}"
+        return f"{self.id} - {self.type} - {self.authors} - {self.fields}"
