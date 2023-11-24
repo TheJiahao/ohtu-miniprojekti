@@ -6,11 +6,11 @@ from infrastructure.database import database as default_database
 class CiteRepository:
     """Luokka, joka vastaa Cite olion tallennuksesta"""
 
-    def __init__(self, database=default_database) -> None:
+    def __init__(self, database: Database = default_database) -> None:
         """Luokan konstruktori
 
         Args:
-            db (SQLiteDB, optional): SQLiteDB olio, oletuksena database.py:n sisällä luotu
+            database (Database, optional): Tietokantayhteydestä vastaava olio.
         """
 
         self._database: Database = database
