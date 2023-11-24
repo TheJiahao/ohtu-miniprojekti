@@ -11,6 +11,7 @@
     "pylint.cwd": "${workspaceFolder}/src",
     "editor.defaultFormatter": "ms-python.black-formatter",
     "pylint.args": [
-        "--rcfile=${workspaceFolder}/.pylintrc"
+        "--rcfile=${workspaceFolder}/.pylintrc",
+        "--ignore-patterns=tests/**"
     ]
 }
