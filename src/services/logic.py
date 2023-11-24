@@ -15,19 +15,20 @@ class Logic:
 
         self.repository = repository
 
-    def create_cite(self, type: str, name: str, fields: dict):
+    def create_cite(self, id: str, type: str, authors: list[str], fields: dict):
         """Lisää uuden viitteen.
 
         Args:
-            type (str): Viitteen tyyppi
-            name (str): Viitteen nimi
-            fields (dict): Vitteen kentät
+            id (str): Viitteen tunnus.
+            type (str): Viitteen tyyppi.
+            authors (list[str]): Viitteen tekijät.
+            fields (dict): Vitteen kentät.
 
         Returns:
             str: "Cite added" tai "Error"
         """
 
-        cite = Cite(name, type, fields)
+        cite = Cite(id, type, authors, fields)
         self.repository.add_cite(cite)
         return "Cite added"
 
