@@ -39,7 +39,7 @@ FilterService ..> Cite
 CiteRepository --> Database
 
 class Logic{
-    +create_cite(type: str, name: str, fields: dict)
+    +create_cite(id: str, type: str, authors: list[str], fields: dict)
     +get_all_cites()
     +export(path: str, format: str, cites: list[Cite])
     +remove_cite(id: str)
