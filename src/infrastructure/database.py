@@ -9,6 +9,7 @@ class Database:
 
     def __init__(self) -> None:
         """Luokan konstruktori."""
+
         self.connection: Connection = connect(DATABASE_FILE_PATH)
         self.connection.row_factory = Row
         self.cursor: Cursor = self.connection.cursor()
@@ -41,6 +42,8 @@ class Database:
         self.connection.commit()
 
     def drop_tables(self) -> None:
+        """Poistaa kaikki tietokannan taulut."""
+
         self.cursor.execute(
             """
             DROP TABLE IF EXISTS Cites
@@ -56,6 +59,8 @@ class Database:
         self.connection.commit()
 
     def initialize(self) -> None:
+        """Alustaa tietokannan."""
+
         self.drop_tables()
         self.create_tables()
 
