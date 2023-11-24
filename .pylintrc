@@ -13,11 +13,8 @@ disable=raw-checker-failed,
         deprecated-pragma,
         use-symbolic-message-instead,
         missing-module-docstring,
-        missing-function-docstring,
-        missing-class-docstring,
         redefined-builtin,
-        too-few-public-methods,
-        missing-module-docstring
+        too-few-public-methods
 
 [FORMAT]
 
