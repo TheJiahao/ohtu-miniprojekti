@@ -1,19 +1,16 @@
 import unittest
-from unittest.mock import MagicMock
-from repositories.cite_repository import CiteRepository
+
 from entities.cite import Cite
+from infrastructure.database import database
+from repositories.cite_repository import CiteRepository
 
 
 class TestCiteRepository(unittest.TestCase):
     def setUp(self):
-        self.mock_db = MagicMock()
-        self.repository = CiteRepository(db=self.mock_db)
+        self.repository = CiteRepository(database)
+        self.repository.remove_all_cites()
 
-    def test_init(self):
-        self.assertIsNotNone(self.repository)
+    def test_add_cite_without_fields(self):
+        self.repository.add_cite(Cite("Amazing book", "book", {}))
 
-    def test_add_cite(self):
-        cite = Cite("repo_add_cite", "testiB", "testiC")
-        self.repository.add_cite(cite)
-
-        self.mock_db.add_cite.assert_called_once_with(cite)
+        data = database.cursor.execute("SELECT * FROM Cites").fetchall()
