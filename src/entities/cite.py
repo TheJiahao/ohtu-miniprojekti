@@ -8,7 +8,7 @@ class Cite:  # pylint: disable=too-few-public-methods
         fields (dict): Viitteen kentät.
     """
 
-    def __init__(self, id: str, type: str, authors: list[str], fields: dict) -> None:
+    def __init__(self, id: str, type: str, authors: list[str], fields: dict = {}) -> None:
         """Luokan konstruktori
 
         Args:
