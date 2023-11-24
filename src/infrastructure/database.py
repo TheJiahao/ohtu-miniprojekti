@@ -31,6 +31,15 @@ class Database:
 
         self.cursor.execute(
             """
+            CREATE TABLE Authors (
+                cite_id TEXT REFERENCES Cites,
+                name TEXT
+            )
+            """
+        )
+
+        self.cursor.execute(
+            """
             CREATE TABLE Fields (
                 cite_id TEXT REFERENCES Cites,
                 name TEXT,
@@ -47,6 +56,12 @@ class Database:
         self.cursor.execute(
             """
             DROP TABLE IF EXISTS Cites
+            """
+        )
+
+        self.cursor.execute(
+            """
+            DROP TABLE IF EXISTS Authors
             """
         )
 

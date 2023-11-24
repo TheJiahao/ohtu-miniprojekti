@@ -48,6 +48,7 @@ class Logic{
 class Cite {
     +id: str
     +type: str
+    +authors: list[str]
     +fields: dict
     +__str__()
 }
@@ -93,5 +94,10 @@ CREATE TABLE Fields (
     cite_id TEXT REFERENCES Cites,
     name TEXT,
     content TEXT
+)
+
+CREATE TABLE Authors (
+    cite_id TEXT REFERENCES Cites,
+    name TEXT
 )
 ```

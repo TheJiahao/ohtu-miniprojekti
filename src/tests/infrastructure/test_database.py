@@ -23,10 +23,12 @@ class TestDatabase(unittest.TestCase):
 
         tables = {row["name"] for row in rows}
 
-        self.assertEqual(tables, {"Cites", "Fields"})
+        self.assertEqual(tables, {"Cites", "Authors", "Fields"})
 
     def test_drop_tables(self):
         self.cursor.execute("CREATE TABLE Cites (test TEXT PRIMARY KEY)")
+        self.cursor.execute("CREATE TABLE Fields (test TEXT PRIMARY KEY)")
+        self.cursor.execute("CREATE TABLE Authors (test TEXT PRIMARY KEY)")
 
         database.drop_tables()
 
@@ -38,7 +40,7 @@ class TestDatabase(unittest.TestCase):
             """
         ).fetchall()
 
-        self.assertEqual(rows, [])
+        self.assertEqual(len(rows), 0)
 
     def test_initialize_database(self):
         database.initialize()
@@ -53,4 +55,4 @@ class TestDatabase(unittest.TestCase):
 
         tables = {row["name"] for row in rows}
 
-        self.assertEqual(tables, {"Cites", "Fields"})
+        self.assertEqual(tables, {"Cites", "Authors", "Fields"})
