@@ -1,12 +1,12 @@
 from entities.cite import Cite
-from infrastructure.database import Database
 from infrastructure.database import database as default_database
+from infrastructure.database import Database
 
 
 class CiteRepository:
     """Luokka, joka vastaa Cite olion tallennuksesta"""
 
-    def __init__(self, database: Database = default_database) -> None:
+    def __init__(self, database: Database = default_database) ->  None:
         """Luokan konstruktori
 
         Args:
