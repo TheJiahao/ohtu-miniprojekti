@@ -29,7 +29,15 @@ class CiteRepository:
             (cite.id, cite.type),
         )
 
-        for name, content in cite.fields:
+        for name in cite.authors:
+            self._database.cursor.execute(
+                """
+                INSERT INTO Authors (cite_id, name) VALUES (?, ?)
+                """,
+                (cite.id, name),
+            )
+
+        for name, content in cite.fields.items():
             self._database.cursor.execute(
                 """
                 INSERT INTO Fields (cite_id, name, content) VALUES (?, ?, ?)
@@ -42,9 +50,6 @@ class CiteRepository:
     # def get_all_cites(self) -> list[Cite]:
     #     return self.db.get_all_cites()
     #     pass
-
-    def get_cites(self):
-        pass
 
     def remove_all_cites(self) -> None:
         """Poistaa kaikki viitteet."""
