@@ -24,6 +24,7 @@ jobs:
 
     Lint:
         runs-on: ubuntu-latest
+
         steps:
             - uses: actions/checkout@v4
             - name: Set up
@@ -31,15 +32,19 @@ jobs:
             - name: Run pylint
               run: poetry run pylint src
 
-#    Format:
-#        runs-on: ubuntu-latest
-#        steps:
-#          - uses: actions/checkout@v4
-#          - name: Set up
-#            uses: ./setup-action
-#          - name: Format code
-#            run: poetry run black src && poetry run isort --profile black .
-#          - name: Git add, commit and push
-#            uses: EndBug/add-and-commit@v9
-#            with:
-#              message: Format code
+    Format:
+        runs-on: ubuntu-latest
+
+        permissions:
+            contents: write
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Set up
+              uses: ./setup-action
+            - name: Format code
+              run: poetry run black src && poetry run isort --profile black .
+            - name: Commit and push changes
+              uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                  commit_message: Format code
