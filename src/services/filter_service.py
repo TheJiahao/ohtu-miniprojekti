@@ -1,4 +1,4 @@
-# from entities.cite import Cite
+from entities.cite import Cite
 from repositories.cite_repository import cite_repository
 
 
@@ -11,12 +11,19 @@ class FilterService:
     # Vähän epävarma onko toi palautusmuoto list[Cite]
     # mutta tehkää niinkun parhaaks näätte :)
 
-    # def filter_by_name(name: str) -> list[Cite]:
-    #     cites = self.repository.get_all_cites()
+    def filter_by_name(self, name: str) -> list[Cite]:
+        """Hakee viitteet annetun hakusanan perusteella
 
-    #     filtered_cites = [
-    #         cite for cite in cites if name.lower() in cite.lower()]
-    #     return filtered_cites
+        Args:
+            name (str): viitteen nimen hakusana
+
+        Returns:
+            list[Cite]: lista viiteolioita, jotka sopivat hakusanaan
+        """
+        cites = self.repository.get_all_cites()
+        filtered_cites = [
+            cite for cite in cites if name.lower() in cite.fields["title"].lower()]
+        return filtered_cites
 
     # def filter_by_author(author: str) -> list[Cite]:
     #     pass
