@@ -22,7 +22,8 @@ class FilterService:
         """
         cites = self.repository.get_all_cites()
         filtered_cites = [
-            cite for cite in cites if name.lower() in cite.fields["title"].lower()]
+            cite for cite in cites if name.lower() in cite.fields["title"].lower()
+        ]
         return filtered_cites
 
     # def filter_by_author(author: str) -> list[Cite]:

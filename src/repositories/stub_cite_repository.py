@@ -6,7 +6,7 @@ from infrastructure.database import database as default_database
 class StubCiteRepository:
     """Testausta varten luokka, joka vastaa Cite olion tallennuksesta"""
 
-    def __init__(self, cites: list,  database: Database = default_database) -> None:
+    def __init__(self, cites: list, database: Database = default_database) -> None:
         """Luokan konstruktori
 
         Args:
