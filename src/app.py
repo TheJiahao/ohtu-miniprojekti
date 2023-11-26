@@ -60,7 +60,7 @@ class App:
         # Seuraavaksi tulisi tyypistä riippuen eri kenttien kyselyitä
 
         print("\nSyötä kirjailijat (authors), erota pilkulla: \n")
-        fields["author"] = (self.io.read()).split(", ")
+        authors = (self.io.read()).split(", ")
 
         print("\nSyötä otsikko (title): \n")
         fields["title"] = str(self.io.read())
@@ -68,7 +68,7 @@ class App:
         print("\nSyötä vuosi (year): \n")
         fields["year"] = int(self.io.read())
 
-        return self.logic.create_cite(cite_type, cite_name, fields)
+        return self.logic.create_cite(cite_type, cite_name, authors, fields)
 
     def get_cites(self):
         """palauttaa kaikki viitteet

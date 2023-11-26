@@ -12,7 +12,11 @@ class FilterService:
     # mutta tehkää niinkun parhaaks näätte :)
 
     # def filter_by_name(name: str) -> list[Cite]:
-    #     pass
+    #     cites = self.repository.get_all_cites()
+
+    #     filtered_cites = [
+    #         cite for cite in cites if name.lower() in cite.lower()]
+    #     return filtered_cites
 
     # def filter_by_author(author: str) -> list[Cite]:
     #     pass
