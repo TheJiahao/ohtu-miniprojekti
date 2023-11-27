@@ -48,6 +48,11 @@ class CiteRepository:
         self._database.connection.commit()
 
     def get_all_cites(self) -> list[Cite]:
+        """Hakee kaikki viitteet
+
+        Returns:
+            list[Cite]: lista Cite olioita
+        """
         return []
 
     #     return self.db.get_all_cites()
