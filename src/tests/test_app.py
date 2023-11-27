@@ -1,6 +1,6 @@
 import unittest
 
-from app import App
+from ui.app import App
 from services.logic import Logic
 
 

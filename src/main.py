@@ -1,4 +1,4 @@
-from app import App
+from ui.app import App
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 
