@@ -1,74 +1,39 @@
-class UI:
+from ui.add_cite_view import AddCiteView
+from ui.view import View
+
+from infrastructure.console_io import ConsoleIO
+from services.logic import Logic
+
+
+class UI(View):
     """Luokka, joka vastaa käyttöliittymästä."""
 
-    def __init__(self, io, logic):
-        """Alustaa olion
+    def __init__(
+        self, logic: Logic, io: ConsoleIO, views: dict[str, View] | None = None
+    ) -> None:
+        add_cite_view = AddCiteView(logic, io)
 
-        Args:
-            io (object): konsoli io
-            logic (object): sovelluslogiikka
-        """
+        self.__views: dict[str, View] = views or {"lisää": add_cite_view}
 
-        self.logic = logic
-        self.io = io
+        help_message = "\n".join(
+            [f"{command}: {view.description}" for command, view in self.__views.items()]
+        )
 
-    def run(self):
-        """Käynnistää sovelluksen"""
+        super().__init__("Sovelluksen päänäkymä", help_message, logic, io)
+
+    def start(self):
+        """Käynnistää sovelluksen."""
+        super().start()
 
         while True:
-            choice = self.choose_action()
-            if choice == 2:
-                added_cite = self.add_cite()
-                print(f"\n{added_cite}")
-            elif choice == 1:
-                cites = self.get_cites()
-                for cite in cites:
-                    print(f"\n{cite[0]}")
-            else:
-                print("Toimintoa ei olemassa tai ei toteutettu vielä.")
-                break
+            self._show_help()
 
-    def choose_action(self):
-        """Käyttäjä voi valita toiminnon
+            try:
+                choice = self._io.read()
+                self.__views[choice].start()
 
-        Returns:
-            int: Valittua toimintoa vastaava numero
-        """
-        print("\nValitse toiminto:\n")
-        print("0: lopeta")
-        print("1: näytä viitteet")
-        print("2: lisää uusi viite\n")
-
-        return int(self.io.read())
-
-    def add_cite(self):
-        """Lisää viite
-
-        Returns:
-            str: Kertoo käyttäjälle onnistuiko lisäys
-        """
-        fields = {}
-
-        print("\nValitse viitetyyppi:\n")
-        print("1: kirja (book)")
-        print("2: artikkeli (article)\n")
-        cite_type = int(self.io.read())
-
-        print("\nSyötä viitteen nimi: \n")
-        cite_name = str(self.io.read())
-
-        # Seuraavaksi tulisi tyypistä riippuen eri kenttien kyselyitä
-
-        print("\nSyötä kirjailijat (authors), erota pilkulla: \n")
-        authors = (self.io.read()).split(", ")
-
-        print("\nSyötä otsikko (title): \n")
-        fields["title"] = str(self.io.read())
-
-        print("\nSyötä vuosi (year): \n")
-        fields["year"] = int(self.io.read())
-
-        return self.logic.create_cite(cite_type, cite_name, authors, fields)
+            except (ValueError, KeyError):
+                self._io.write("Toimintoa ei olemassa tai ei toteutettu vielä.")
 
     def get_cites(self):
         """palauttaa kaikki viitteet
@@ -76,5 +41,5 @@ class UI:
         Returns:
             list: kaikki citet omissa listoissaan
         """
-        cites = self.logic.get_cites()
+        cites = self._logic.get_all_cites()
         return cites

@@ -8,7 +8,7 @@ def main():
     io = ConsoleIO()
     app = UI(io, logic)
 
-    app.run()
+    app.start()
 
 
 if __name__ == "__main__":
