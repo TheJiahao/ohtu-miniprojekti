@@ -44,17 +44,15 @@ CiteRepository --> Database
 
 class View {
     +description: str
-    #_help_message: str
-    -logic: Logic
+    #help_message: str
+    #logic: Logic
     +start()
-    +__init__(description: str, logic: Logic)
-    #_show_help()
-    #_show_cites(cites: list[Cite])
+    #show_help()
+    #show_cites(cites: list[Cite])
 }
 
 class UI {
     -views: ordered_dict[str, View]
-    +__init__(description: str, logic: Logic, views: ordered_dict[str, View] | None)
 }
 
 class Logic{
