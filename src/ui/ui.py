@@ -1,4 +1,4 @@
-class App:
+class UI:
     """Luokka, joka vastaa käyttöliittymästä."""
 
     def __init__(self, io, logic):

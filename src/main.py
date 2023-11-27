@@ -1,4 +1,4 @@
-from ui.app import App
+from ui.ui import UI
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 
@@ -6,7 +6,7 @@ from services.logic import Logic
 def main():
     logic = Logic()
     io = ConsoleIO()
-    app = App(io, logic)
+    app = UI(io, logic)
 
     app.run()
 

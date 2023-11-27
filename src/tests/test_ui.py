@@ -1,6 +1,6 @@
 import unittest
 
-from ui.app import App
+from ui.ui import UI
 from services.logic import Logic
 
 
@@ -24,5 +24,5 @@ class TestApp(unittest.TestCase):
         io = StubIO(
             ["1", "Testi viitenimi", ["Matti", "Pekka"], "Testi otsikko", "1621"]
         )
-        app = App(io, self.logic)
+        app = UI(io, self.logic)
         self.assertEqual(app.choose_action(), 1)
