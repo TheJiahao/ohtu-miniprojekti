@@ -6,7 +6,7 @@ from services.logic import Logic
 def main():
     logic = Logic()
     io = ConsoleIO()
-    app = UI(io, logic)
+    app = UI(logic=logic, io=io)
 
     app.start()
 
