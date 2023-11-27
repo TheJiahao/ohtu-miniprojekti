@@ -54,7 +54,7 @@ class View {
 
 class UI {
     -views: ordered_dict[str, View]
-    +__init__(views: ordered_dict[str, View] | None)
+    +__init__(description: str, logic: Logic, views: ordered_dict[str, View] | None)
 }
 
 class Logic{
