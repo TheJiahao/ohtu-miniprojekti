@@ -22,7 +22,11 @@ Repository --> Tietokanta
 
 ```mermaid
 classDiagram
-Ui --> Logic
+
+View <|-- UI
+View <|-- SearchCiteView
+View <|-- AddCiteView
+View --> Logic
 
 Logic --> Cite
 Logic --> CiteRepository
@@ -38,8 +42,24 @@ FilterService ..> Cite
 
 CiteRepository --> Database
 
+class View {
+    +description: str
+    #_help_message: str
+    -logic: Logic
+    +start()
+    +__init__(description: str, logic: Logic)
+    #_show_help()
+    #_show_cites(cites: list[Cite])
+}
+
+class UI {
+    -views: ordered_dict[str, View]
+    +__init__(views: ordered_dict[str, View] | None)
+}
+
 class Logic{
     +create_cite(id: str, type: str, authors: list[str], fields: dict)
+    +filter_cites(filters: set[str])
     +get_all_cites()
     +export(path: str, format: str, cites: list[Cite])
     +remove_cite(id: str)
@@ -81,6 +101,12 @@ class FilterService {
     +filter_by_tag(tag: str)
 }
 ```
+
+### Käyttöliittymä
+
+- Yhteiden yliluokka: käyttöliittymillä on paljon yhteistä
+- Viitteiden listaus: tätä tarvitaan ainakin viitteiden poistossa, haussa, listauksessa.
+  Näin ollen se on hyvä toteuttaa vain kerran.
 
 ## SQL-skeema
 
