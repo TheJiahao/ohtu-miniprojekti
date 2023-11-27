@@ -24,7 +24,7 @@ Repository --> Tietokanta
 classDiagram
 
 View <|-- UI
-View <|-- SearchCiteView
+View <|-- FilterCiteView
 View <|-- AddCiteView
 View --> Logic
 View --> ConsoleIO
