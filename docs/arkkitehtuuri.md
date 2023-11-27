@@ -27,6 +27,7 @@ View <|-- UI
 View <|-- SearchCiteView
 View <|-- AddCiteView
 View --> Logic
+View --> ConsoleIO
 
 Logic --> Cite
 Logic --> CiteRepository
@@ -42,10 +43,16 @@ FilterService ..> Cite
 
 CiteRepository --> Database
 
+class ConsoleIO {
+    +read()
+    +write(text: str)
+}
+
 class View {
     +description: str
     #help_message: str
     #logic: Logic
+    #io: ConsoleIO
     +start()
     #show_help()
     #show_cites(cites: list[Cite])
