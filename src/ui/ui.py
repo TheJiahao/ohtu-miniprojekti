@@ -19,17 +19,21 @@ class UI(View):
             [f"{command}: {view.description}" for command, view in self.__views.items()]
         )
 
+        help_message += "\nlopeta: Lopeta"
+
         super().__init__("Sovelluksen päänäkymä", help_message, logic, io)
 
     def start(self):
         """Käynnistää sovelluksen."""
-        super().start()
-
         while True:
             self._show_help()
 
             try:
                 choice = self._io.read()
+
+                if choice == "lopeta":
+                    break
+
                 self.__views[choice].start()
 
             except (ValueError, KeyError):
