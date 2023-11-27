@@ -6,11 +6,7 @@ from entities.cite import Cite
 
 
 class View(ABC):
-    """Luokka, joka vastaa yksittäisestä näkymästä.
-
-    Args:
-        ABC (_type_): _description_
-    """
+    """Luokka, joka vastaa yksittäisestä näkymästä."""
 
     def __init__(
         self, description: str, help_message: str, logic: Logic, io: ConsoleIO
@@ -21,14 +17,14 @@ class View(ABC):
         self._io: ConsoleIO = io
 
     @abstractmethod
-    def start(self):
+    def start(self) -> None:
         """Käynnistää näkymän."""
         self._show_help()
 
     def _show_help(self) -> None:
         self._io.write(self._help_message)
 
-    def show_cites(self, cites: list[Cite]):
+    def show_cites(self, cites: list[Cite]) -> None:
         """Tulostaa viitteet.
 
         Args:
