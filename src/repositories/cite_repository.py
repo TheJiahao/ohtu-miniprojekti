@@ -47,7 +47,8 @@ class CiteRepository:
 
         self._database.connection.commit()
 
-    # def get_all_cites(self) -> list[Cite]:
+    def get_all_cites(self) -> list[Cite]:
+        return []
     #     return self.db.get_all_cites()
     #     pass
 
