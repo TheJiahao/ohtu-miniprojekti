@@ -23,25 +23,31 @@ Repository --> Tietokanta
 ```mermaid
 classDiagram
 
+View --> Logic
+View --> ConsoleIO
 View <|-- UI
 View <|-- FilterCiteView
 View <|-- AddCiteView
-View --> Logic
-View --> ConsoleIO
 
-Logic --> Cite
-Logic --> CiteRepository
-Logic --> ExportService
+UI --> FilterCiteView
+UI --> AddCiteView
+
 Logic --> CiteValidator
+Logic ..> Cite
+Logic --> CiteRepository
 Logic --> FilterService
+Logic --> ExportService
 
 ExportService --> BibtexExporter
 ExportService ..> Cite
+
+BibtexExporter ..> Cite
 
 FilterService --> CiteRepository
 FilterService ..> Cite
 
 CiteRepository --> Database
+CiteRepository ..> Cite
 
 class ConsoleIO {
     +read()
