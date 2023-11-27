@@ -1,5 +1,5 @@
 from app import App
-from console_io import ConsoleIO
+from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 
 
