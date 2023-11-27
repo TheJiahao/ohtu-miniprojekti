@@ -49,6 +49,7 @@ class CiteRepository:
 
     def get_all_cites(self) -> list[Cite]:
         return []
+
     #     return self.db.get_all_cites()
     #     pass
 

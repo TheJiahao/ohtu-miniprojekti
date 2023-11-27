@@ -1,6 +1,6 @@
 from entities.cite import Cite
-from services.filter_service import FilterService
 from repositories.cite_repository import cite_repository
+from services.filter_service import FilterService
 
 
 class Logic:
@@ -16,13 +16,13 @@ class Logic:
 
         self.repository = repository
         self.__filter_service = filter_service
-    
+
     def filter_cites(self, search: str, filters: set[str]) -> list[Cite]:
         """Hakee hakusanan ja tyypin mukaiset viitteet
 
         Args:
             search (str): hakusana
-            filters (set[str]): setti filtereitä, esim. nimi, vuosi, kirjoittajat 
+            filters (set[str]): setti filtereitä, esim. nimi, vuosi, kirjoittajat
 
         Returns:
             list[Cite]: lista Cite olioita
@@ -31,8 +31,8 @@ class Logic:
 
         if "name" in filters:
             cites.append(self.__filter_service.filter_by_name(search))
-        
-        return cites        
+
+        return cites
 
     def create_cite(self, id: str, type: str, authors: list[str], fields: dict):
         """Lisää uuden viitteen.
