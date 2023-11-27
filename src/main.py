@@ -1,6 +1,6 @@
-from ui.ui import UI
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
+from ui.ui import UI
 
 
 def main():

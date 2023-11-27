@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
-from services.logic import Logic
-from infrastructure.console_io import ConsoleIO
 from entities.cite import Cite
+from infrastructure.console_io import ConsoleIO
+from services.logic import Logic
 
 
 class View(ABC):

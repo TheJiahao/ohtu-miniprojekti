@@ -1,8 +1,7 @@
-from ui.add_cite_view import AddCiteView
-from ui.view import View
-
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
+from ui.add_cite_view import AddCiteView
+from ui.view import View
 
 
 class UI(View):
