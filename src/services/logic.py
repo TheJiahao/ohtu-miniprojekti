@@ -39,6 +39,5 @@ class Logic:
             list[Cite]: Lista, joka sisältää kaikki viitteet.
         """
 
-        cites = self.repository.get_cites()
-        print(cites)
+        cites = self.repository.get_all_cites()
         return cites

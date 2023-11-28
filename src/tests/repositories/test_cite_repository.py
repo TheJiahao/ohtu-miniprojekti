@@ -82,3 +82,41 @@ class TestCiteRepository(unittest.TestCase):
         self.assertEqual(len(cites), 1)
         self.assertEqual(cites[0]["id"], "amazingBook")
         self.assertEqual(cites[0]["type"], "book")
+
+    def test_fetching_all_cites(self):
+        self.repository.remove_all_cites()
+        self.repository.add_cite(
+            Cite(
+                "amazingBook",
+                "book",
+                ["Alice", "Bob"],
+                {"year": 3202, "title": "An amazing book"},
+            )
+        ) 
+        self.repository.add_cite(
+            Cite(
+                "wonderful story",
+                "book",
+                ["wonder", "Full"],
+                {"year": 2002, "title": "Wonderful story"},
+            )
+        ) 
+
+        cites=self.repository.get_all_cites()
+        self.assertEqual(len(cites), 4)
+
+    def test_get_correct_cites(self):
+        self.repository.remove_all_cites()
+        self.repository.add_cite(
+            Cite(
+                "amazingBook",
+                "book",
+                ["Alice", "Bob"],
+                {"year": 3202, "title": "An amazing book"},
+            )
+        )        
+        cites=self.repository.get_all_cites()
+        self.assertEqual(cites[0]["id"], "amazingBook")
+        self.assertEqual(cites[1]["id"], "amazingBook")
+
+

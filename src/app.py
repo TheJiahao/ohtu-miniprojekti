@@ -1,3 +1,5 @@
+from sqlite3 import Row
+
 class App:
     """Luokka, joka vastaa käyttöliittymästä."""
 
@@ -22,8 +24,14 @@ class App:
                 print(f"\n{added_cite}")
             elif choice == 1:
                 cites = self.get_cites()
-                for cite in cites:
-                    print(f"\n{cite[0]}")
+                current_id = 0
+                for row in cites:
+                    if row[0] != current_id:
+                        print(f"\n ID: {row[0]}, nimi: {row[1]}")
+                        print(f"Authors:\n{row[2]}")
+                        current_id = row[0]
+                    else:
+                        print(row[2])
             else:
                 print("Toimintoa ei olemassa tai ei toteutettu vielä.")
                 break
@@ -76,5 +84,5 @@ class App:
         Returns:
             list: kaikki citet omissa listoissaan
         """
-        cites = self.logic.get_cites()
+        cites = self.logic.get_all_cites()
         return cites
