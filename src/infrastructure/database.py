@@ -79,4 +79,5 @@ class Database:
         self.drop_tables()
         self.create_tables()
 
+
 database = Database()
