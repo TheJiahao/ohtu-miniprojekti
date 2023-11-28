@@ -43,13 +43,10 @@ class Logic:
             authors (list[str]): Viitteen tekijät.
             fields (dict): Vitteen kentät.
 
-        Returns:
-            str: "Cite added" tai "Error"
         """
 
         cite = Cite(id, type, authors, fields)
         self.repository.add_cite(cite)
-        return "Cite added"
 
     def get_all_cites(self) -> list[Cite]:
         """Palauttaa kaikki viitteet.
