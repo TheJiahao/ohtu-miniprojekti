@@ -48,9 +48,12 @@ class CiteRepository:
         self._database.connection.commit()
 
     def get_all_cites(self) -> list[Cite]:
+        """Hakee tietokannasta kaikki viitteet."""
         res = self._database.cursor.execute(
             """
-                SELECT Cites.id, Fields.content, Authors.name FROM Cites, Fields, Authors WHERE Cites.id = Authors.cite_id AND Cites.id = Fields.cite_id AND Fields.name = 'title'
+                SELECT Cites.id, Fields.content, Authors.name 
+                FROM Cites, Fields, Authors WHERE Cites.id = Authors.cite_id 
+                AND Cites.id = Fields.cite_id AND Fields.name = 'title'
                 """
         )
         cites = res.fetchall()
