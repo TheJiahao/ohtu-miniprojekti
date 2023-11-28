@@ -26,8 +26,25 @@ class FilterService:
         ]
         return filtered_cites
 
-    # def filter_by_author(author: str) -> list[Cite]:
-    #     pass
+    def filter_by_author(self, author: str) -> list[Cite]:
+        """Hakee viitteet annetun tekijän perusteella
+
+        Args:
+            author (str): viitteen tekijä hakusana
+
+        Returns:
+            list[Cite]: lista viiteolioita, jotka sopivat hakusanaan
+        """
+        cites = self.repository.get_all_cites()
+        if author == "":
+            return cites
+
+        filtered_cites = [
+            cite
+            for cite in cites
+            if author.lower() in [c.lower() for c in cite.authors]
+        ]
+        return filtered_cites
 
     # def filter_by_tag(tag: str) -> list[Cite]:
     #     pass

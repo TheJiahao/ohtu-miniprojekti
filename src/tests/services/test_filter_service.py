@@ -33,3 +33,15 @@ class TestFilterService(unittest.TestCase):
 
     def test_name_filter_returns_empty_list_when_no_matches(self):
         self.assertEqual(self.filter_service.filter_by_name("Ei löydy"), [])
+
+    def test_author_filter_returns_filtered_cites(self):
+        self.assertEqual(
+            self.filter_service.filter_by_author("author2"),
+            [self.cites[0], self.cites[2]],
+        )
+
+    def test_author_filter_returns_all_cites_with_empty_search(self):
+        self.assertEqual(self.filter_service.filter_by_author(""), self.cites)
+
+    def test_name_filter_returns_empty_list_when_no_matches(self):
+        self.assertEqual(self.filter_service.filter_by_author("Ei löydy"), [])
