@@ -30,7 +30,6 @@ class View(ABC):
         Args:
             cites (list[Cite]): Tulostettavat viitteet.
         """
-        self._io.write("\n| id | tyyppi | kentät |")
         for cite in cites:
             self._io.write(cite)
         self._io.write("")
