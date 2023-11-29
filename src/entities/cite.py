@@ -37,7 +37,8 @@ class Cite:  # pylint: disable=too-few-public-methods
     #     """
 
     #     return f"""
-    #                 \nID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
+    #                 \nID: {self.id:15} TYYPPI: {self.type:8}
+    #                 KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
     #             """
 
     # def __repr__(self):
@@ -47,5 +48,6 @@ class Cite:  # pylint: disable=too-few-public-methods
     #         str: Viitteen tiedot
     #     """
     #     return f"""
-    #                 ID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
+    #                 ID: {self.id:15} TYYPPI: {self.type:8}
+    #                 KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
     #             """
