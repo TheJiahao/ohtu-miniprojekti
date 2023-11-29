@@ -13,7 +13,7 @@ jobs:
             - uses: actions/checkout@v4
             - name: Set up
               uses: ./setup-action
-            - name: Run tests
+            - name: Run unit tests
               run: poetry run coverage run --branch -m pytest
             - name: Coverage report
               run: poetry run coverage xml
@@ -21,6 +21,8 @@ jobs:
               uses: codecov/codecov-action@v3
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+            - name: Run acceptance tests
+              run: poetry run robot src/tests/robot
 
     Lint:
         runs-on: ubuntu-latest
