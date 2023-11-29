@@ -31,6 +31,10 @@ class Logic:
 
         if "name" in filters:
             cites.append(self.__filter_service.filter_by_name(search))
+        elif "author" in filters:
+            cites.append(self.__filter_service.filter_by_author(search))
+        elif "tag" in filters:
+            cites.append(self.__filter_service.filter_by_id(search))
 
         return cites
 
