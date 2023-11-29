@@ -1,4 +1,5 @@
-from sqlite3 import Row
+# from sqlite3 import Row
+
 
 class App:
     """Luokka, joka vastaa käyttöliittymästä."""

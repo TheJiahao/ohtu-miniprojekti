@@ -28,9 +28,11 @@ View --> ConsoleIO
 View <|-- UI
 View <|-- FilterCiteView
 View <|-- AddCiteView
+View <|-- ListCiteView
 
 UI --> FilterCiteView
 UI --> AddCiteView
+UI --> ListCiteView
 
 Logic --> CiteValidator
 Logic ..> Cite

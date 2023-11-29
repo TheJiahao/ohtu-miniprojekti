@@ -92,7 +92,7 @@ class TestCiteRepository(unittest.TestCase):
                 ["Alice", "Bob"],
                 {"year": 3202, "title": "An amazing book"},
             )
-        ) 
+        )
         self.repository.add_cite(
             Cite(
                 "wonderful story",
@@ -100,9 +100,9 @@ class TestCiteRepository(unittest.TestCase):
                 ["wonder", "Full"],
                 {"year": 2002, "title": "Wonderful story"},
             )
-        ) 
+        )
 
-        cites=self.repository.get_all_cites()
+        cites = self.repository.get_all_cites()
         self.assertEqual(len(cites), 4)
 
     def test_get_correct_cites(self):
@@ -114,9 +114,7 @@ class TestCiteRepository(unittest.TestCase):
                 ["Alice", "Bob"],
                 {"year": 3202, "title": "An amazing book"},
             )
-        )        
-        cites=self.repository.get_all_cites()
+        )
+        cites = self.repository.get_all_cites()
         self.assertEqual(cites[0]["id"], "amazingBook")
         self.assertEqual(cites[1]["id"], "amazingBook")
-
-

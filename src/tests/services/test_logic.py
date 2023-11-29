@@ -25,18 +25,12 @@ class TestCite(unittest.TestCase):
         create = self.logic.create_cite(
             "123", "book", [], {"year": 1900, "author": "Hello"}
         )
-        self.assertEqual(create, "Cite added")
+        self.repository_mock.add_cite.assert_called()
 
-<<<<<<< HEAD
-    #def test_logic_get_all_cites(self):
-    #    self.repository_mock.get_cites.return_value = "cites"
-    #    get_all = self.logic.get_all_cites()
-    #    self.assertEqual(get_all, "cites")
-=======
     def test_logic_get_all_cites(self):
-        self.repository_mock.get_cites.return_value = "cites"
+        self.repository_mock.get_all_cites.return_value = self.cites
         get_all = self.logic.get_all_cites()
-        self.assertEqual(get_all, "cites")
+        self.assertEqual(get_all, self.cites)
 
     def test_filter_cites_calls_filter_by_name_when_name_searched(self):
         self.logic.filter_cites("Tes", {"name"})
@@ -45,4 +39,3 @@ class TestCite(unittest.TestCase):
     def test_filter_cites_doesnt_call_filter_by_name_when_not_search(self):
         self.logic.filter_cites("Tes", {"authors"})
         self.filter_service_mock.filter_by_name.assert_not_called()
->>>>>>> 13d4f9469c282796d1885bb25550c13587231185
