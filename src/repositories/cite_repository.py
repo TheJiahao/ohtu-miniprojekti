@@ -53,17 +53,20 @@ class CiteRepository:
 
         all_cites = []
         for id, type in cites:
-            authors_query = self._database.cursor.execute("SELECT name FROM Authors WHERE cite_id = ?", (id,))
+            authors_query = self._database.cursor.execute(
+                "SELECT name FROM Authors WHERE cite_id = ?", (id,)
+            )
             authors = [author[0] for author in authors_query.fetchall()]
 
-            fields_query = self._database.cursor.execute("SELECT name, content FROM Fields WHERE cite_id = ?", (id,))
+            fields_query = self._database.cursor.execute(
+                "SELECT name, content FROM Fields WHERE cite_id = ?", (id,)
+            )
             fields = {name: content for name, content in fields_query.fetchall()}
 
             cite = Cite(id, type, authors, fields)
             all_cites.append(cite)
 
         return all_cites
-
 
     def remove_all_cites(self) -> None:
         """Poistaa kaikki viitteet."""
