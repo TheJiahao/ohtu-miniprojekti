@@ -22,6 +22,5 @@ class TestCite(unittest.TestCase):
 
         self.assertEqual(
             str(cite),
-            "\nID: amazing article TYYPPI: article  KIRJOITTAJAT: ['Alice', 'Bob']    KENTÄT: {'year': 3202, 'author': 'Someone'}"
-
+            "\nID: amazing article TYYPPI: article  KIRJOITTAJAT: ['Alice', 'Bob']    KENTÄT: {'year': 3202, 'author': 'Someone'}",
         )
