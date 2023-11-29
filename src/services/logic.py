@@ -32,6 +32,9 @@ class Logic:
         if "name" in filters:
             cites.append(self.__filter_service.filter_by_name(search))
 
+        if "id" in filters:
+            cites.append(self.__filter_service.filter_by_id(search))
+
         return cites
 
     def create_cite(self, id: str, type: str, authors: list[str], fields: dict):

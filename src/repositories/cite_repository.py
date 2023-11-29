@@ -56,7 +56,7 @@ class CiteRepository:
                 AND Cites.id = Fields.cite_id AND Fields.name = 'title'
                 """
         )
-        cites = res.fetchall()
+        cites = res.fetchall() #keys = id, content, name
         return cites
 
     def remove_all_cites(self) -> None:

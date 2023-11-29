@@ -57,11 +57,11 @@ class FilterService:
         """
 
         cites = self.repository.get_all_cites()
-        if id < 1:
+        if int(id) < 1:
             return cites
         filtered_cites = [
             cite for cite in cites
-            if id in [id for id in cite.id]
+            if id in [tunniste for tunniste in cite["id"]]
         ]
         return filtered_cites
         

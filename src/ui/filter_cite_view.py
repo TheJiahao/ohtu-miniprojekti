@@ -11,7 +11,7 @@ class FilterCiteView(View):
     """
 
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
-        self._filtertypes: dict[int, str] = {1: "name", 2: "author", 3: "tag"}
+        self._filtertypes: dict[int, str] = {1: "name", 2: "author", 3: "id"}
 
         help_message = "\n".join(
             ["Valitse hakutyyppi:", "1: nimi", "2: kirjailija", "3: tunniste"]
@@ -30,7 +30,7 @@ class FilterCiteView(View):
                 self._io.write("Syötä viitteen nimi: \n")
             case "author":
                 self._io.write("Syötä kirjailija: \n")
-            case "tag":
+            case "id":
                 self._io.write("Syötä tunniste: \n")
 
         filters = {type}
