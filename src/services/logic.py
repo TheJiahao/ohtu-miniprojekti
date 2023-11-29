@@ -31,11 +31,16 @@ class Logic:
 
         if "name" in filters:
             cites.append(self.__filter_service.filter_by_name(search))
+        elif "author" in filters:
+            cites.append(self.__filter_service.filter_by_author(search))
+        elif "tag" in filters:
+            cites.append(self.__filter_service.filter_by_id(search))
 
         if "id" in filters:
             cites.append(self.__filter_service.filter_by_id(search))
+        print(cites)
 
-        return cites
+        return cites[0]
 
     def create_cite(self, id: str, type: str, authors: list[str], fields: dict):
         """Lisää uuden viitteen.

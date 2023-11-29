@@ -30,10 +30,8 @@ class View(ABC):
         Args:
             cites (list[Cite]): Tulostettavat viitteet.
         """
-        self._io.write("\n| id | tiedot | kirjailijat |")
+        print(cites)
+        self._io.write("\n| id | tyyppi | nimi |")
         for cite in cites:
-            cite_id = cite["id"]
-            cite_fields = cite["content"]
-            cite_authors = cite["name"]
-            self._io.write(f"{cite_id} - {cite_fields} - {cite_authors}")
+            self._io.write(cite.id + "  " + cite.type + "  " + cite.fields["title"])
         self._io.write("")

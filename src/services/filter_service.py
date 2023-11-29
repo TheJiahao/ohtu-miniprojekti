@@ -45,7 +45,7 @@ class FilterService:
             if author.lower() in [c.lower() for c in cite.authors]
         ]
         return filtered_cites
-    
+
     def filter_by_id(self, id) -> list[Cite]:
         """Hakee viitteet annetun ID:n perusteella
 
@@ -59,12 +59,8 @@ class FilterService:
         cites = self.repository.get_all_cites()
         if int(id) < 1:
             return cites
-        filtered_cites = [
-            cite for cite in cites
-            if id in [tunniste for tunniste in cite["id"]]
-        ]
+        filtered_cites = [cite for cite in cites if id in [id for id in cite.id]]
         return filtered_cites
-        
 
     # def filter_by_tag(tag: str) -> list[Cite]:
     #     pass
