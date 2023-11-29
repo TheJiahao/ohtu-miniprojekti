@@ -18,3 +18,7 @@ def coverage(ctx):
 @task
 def refactor(ctx):
     ctx.run("black src && pylint src", pty=True)
+
+@task
+def robot(ctx):
+    ctx.run("robot src/tests/robot", pty=True)
