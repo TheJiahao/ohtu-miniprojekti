@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import MagicMock
 
 from services.logic import Logic
 from ui.ui import UI
@@ -17,4 +18,11 @@ class StubIO:
 
 
 class TestUI(unittest.TestCase):
-    pass
+    def setUp(self):
+        self.mock_logic = MagicMock()
+        self.stub_io = StubIO(inputs=["lopeta"])
+        self.ui = UI(self.mock_logic, self.stub_io)
+
+    def test_ui_start(self):
+        self.ui.start()
+        self.assertTrue(any("lisää" in string for string in self.stub_io.outputs))
