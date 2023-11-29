@@ -37,7 +37,7 @@ class Cite:  # pylint: disable=too-few-public-methods
         """
 
         return f"\nID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}"
-    
+
     def __repr__(self):
         """Palauttaa viitteet merkkijonona
 
@@ -45,4 +45,3 @@ class Cite:  # pylint: disable=too-few-public-methods
             str: Viitteen tiedot
         """
         return f"\nID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}"
-
