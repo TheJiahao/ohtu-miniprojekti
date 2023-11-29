@@ -32,5 +32,5 @@ class View(ABC):
         """
         self._io.write("\n| id | tyyppi | kentät |")
         for cite in cites:
-            self._io.write(cite.__str__())
+            self._io.write(cite)
         self._io.write("")

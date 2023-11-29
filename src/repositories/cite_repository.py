@@ -61,7 +61,7 @@ class CiteRepository:
             fields_query = self._database.cursor.execute(
                 "SELECT name, content FROM Fields WHERE cite_id = ?", (id,)
             )
-            fields = {name: content for name, content in fields_query.fetchall()}
+            fields = dict(fields_query.fetchall())
 
             cite = Cite(id, type, authors, fields)
             all_cites.append(cite)
