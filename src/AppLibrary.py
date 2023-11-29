@@ -1,9 +1,9 @@
 # pylint: skip-file
 
-from services.logic import Logic
 from infrastructure.stub_io import StubIO
-from ui.ui import UI
 from repositories.cite_repository import CiteRepository
+from services.logic import Logic
+from ui.ui import UI
 
 
 class AppLibrary:
