@@ -48,7 +48,6 @@ class CiteRepository:
         self._database.connection.commit()
 
     def get_all_cites(self) -> list[Cite]:
-<<<<<<< HEAD
             res = self._database.cursor.execute(
                 """
                 SELECT Cites.id, Fields.content, Authors.name FROM Cites, Fields, Authors WHERE Cites.id = Authors.cite_id AND Cites.id = Fields.cite_id AND Fields.name = 'title'
@@ -56,17 +55,6 @@ class CiteRepository:
                 )
             cites = res.fetchall()
             return cites
-=======
-        """Hakee kaikki viitteet
-
-        Returns:
-            list[Cite]: lista Cite olioita
-        """
-        return []
-
-    #     return self.db.get_all_cites()
-    #     pass
->>>>>>> 13d4f9469c282796d1885bb25550c13587231185
 
     def remove_all_cites(self) -> None:
         """Poistaa kaikki viitteet."""
