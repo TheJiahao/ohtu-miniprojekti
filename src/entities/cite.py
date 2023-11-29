@@ -29,23 +29,23 @@ class Cite:  # pylint: disable=too-few-public-methods
         self.authors: list[str] = authors or []
         self.fields: dict = fields or {}
 
-    def __str__(self) -> str:
-        """Palauttaa luokan merkkijonona
+    # def __str__(self) -> str:
+    #     """Palauttaa luokan merkkijonona
 
-        Returns:
-            str: Luokka merkkijonona.
-        """
+    #     Returns:
+    #         str: Luokka merkkijonona.
+    #     """
 
-        return f"""
-                    \nID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
-                """
+    #     return f"""
+    #                 \nID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
+    #             """
 
-    def __repr__(self):
-        """Palauttaa viitteet merkkijonona
+    # def __repr__(self):
+    #     """Palauttaa viitteet merkkijonona
 
-        Returns:
-            str: Viitteen tiedot
-        """
-        return f"""
-                    \nID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
-                """
+    #     Returns:
+    #         str: Viitteen tiedot
+    #     """
+    #     return f"""
+    #                 ID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
+    #             """

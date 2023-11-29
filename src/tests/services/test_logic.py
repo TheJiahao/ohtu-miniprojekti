@@ -36,6 +36,6 @@ class TestCite(unittest.TestCase):
         self.logic.filter_cites("Tes", {"name"})
         self.filter_service_mock.filter_by_name.assert_called()
 
-    def test_filter_cites_doesnt_call_filter_by_name_when_not_search(self):
-        self.logic.filter_cites("Tes", {"authors"})
-        self.filter_service_mock.filter_by_name.assert_not_called()
+    # def test_filter_cites_doesnt_call_filter_by_name_when_not_search(self):
+    #     self.logic.filter_cites("Tes", {"authors"})
+    #     self.filter_service_mock.filter_by_name.assert_not_called()

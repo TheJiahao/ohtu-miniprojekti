@@ -38,8 +38,7 @@ class Logic:
 
         if "id" in filters:
             cites.append(self.__filter_service.filter_by_id(search))
-        print(cites)
-
+            
         return cites[0]
 
     def create_cite(self, id: str, type: str, authors: list[str], fields: dict):

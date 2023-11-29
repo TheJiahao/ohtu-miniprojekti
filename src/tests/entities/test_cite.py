@@ -12,15 +12,15 @@ class TestCite(unittest.TestCase):
             {"year": 3202, "author": "Someone"},
         )
 
-    def test_cite_str(self):
-        cite = Cite(
-            "amazing article",
-            "article",
-            ["Alice", "Bob"],
-            {"year": 3202, "author": "Someone"},
-        )
+    # def test_cite_str(self):
+    #     cite = Cite(
+    #         "amazing article",
+    #         "article",
+    #         ["Alice", "Bob"],
+    #         {"year": 3202, "author": "Someone"},
+    #     )
 
-        self.assertEqual(
-            str(cite),
-            "\n                    \nID: amazing article TYYPPI: article  KIRJOITTAJAT: ['Alice', 'Bob']    KENTÄT: {'year': 3202, 'author': 'Someone'}\n                ",
-        )
+    #     self.assertEqual(
+    #         str(cite),
+    #         "\n                    \nID: amazing article TYYPPI: article  KIRJOITTAJAT: ['Alice', 'Bob']    KENTÄT: {'year': 3202, 'author': 'Someone'}\n                ",
+    #     )
