@@ -2,6 +2,7 @@ from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 from ui.add_cite_view import AddCiteView
 from ui.list_cite_view import ListCiteView
+from ui.filter_cite_view import FilterCiteView
 from ui.view import View
 
 
@@ -13,10 +14,12 @@ class UI(View):
     ) -> None:
         add_cite_view = AddCiteView(logic, io)
         list_cite_view = ListCiteView(logic, io)
+        filter_cite_view = FilterCiteView(logic, io)
 
         self.__views: dict[str, View] = views or {
             "lisää": add_cite_view,
             "listaa": list_cite_view,
+            "hae": filter_cite_view,
         }
 
         help_message = "\n".join(
