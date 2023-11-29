@@ -36,4 +36,16 @@ class Cite:  # pylint: disable=too-few-public-methods
             str: Luokka merkkijonona.
         """
 
-        return f"{self.id} - {self.type} - {self.authors} - {self.fields}"
+        return f"""
+                    \nID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
+                """
+
+    def __repr__(self):
+        """Palauttaa viitteet merkkijonona
+
+        Returns:
+            str: Viitteen tiedot
+        """
+        return f"""
+                    \nID: {self.id:15} TYYPPI: {self.type:8} KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
+                """
