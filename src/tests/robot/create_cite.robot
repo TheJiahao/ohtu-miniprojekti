@@ -20,6 +20,10 @@ Add Cite With Correct Inputs
     Add Cite  lisää  2  robo2  Sähkövirta Smith , Aarne Terästähti  Robottien tulevaisuus  1989 
     Run App
 
+Add Journal Type Cite With Correct Inputs
+    Add Cite  lisää  3  journaltesti  journalauthor  journaltitle  1984
+    Run App
+
 *** Keywords ***
 Incorrect Input
     Run App
