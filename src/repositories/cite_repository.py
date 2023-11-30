@@ -48,25 +48,50 @@ class CiteRepository:
         self._database.connection.commit()
 
     def get_all_cites(self) -> list[Cite]:
-        """Hakee tietokannasta kaikki viitteet."""
-        cites = self._database.cursor.execute("SELECT id, type FROM Cites").fetchall()
+        """Palauttaa listan kaikista viitteistä"""
+        ids = self.get_all_ids()
+        types = self.get_all_types()
+        fields = self.get_all_fields()
+        authors = self.get_all_authors()
 
         all_cites = []
-        for id, type in cites:
-            authors_query = self._database.cursor.execute(
-                "SELECT name FROM Authors WHERE cite_id = ?", (id,)
-            )
-            authors = [author[0] for author in authors_query.fetchall()]
-
-            fields_query = self._database.cursor.execute(
-                "SELECT name, content FROM Fields WHERE cite_id = ?", (id,)
-            )
-            fields = dict(fields_query.fetchall())
-
-            cite = Cite(id, type, authors, fields)
+        for id in ids:
+            cite = Cite(id, types[id], authors[id], fields[id])
             all_cites.append(cite)
 
         return all_cites
+
+    def get_all_ids(self) -> list[str]:
+        """Hakee tietokannasta viitteiden id:t"""
+        ids = self._database.cursor.execute("SELECT id FROM Cites").fetchall()
+        return [id[0] for id in ids]
+
+    def get_all_types(self) -> dict[str, str]:
+        """Hakee tietokannasta viitteen tyypit"""
+        types = self._database.cursor.execute("SELECT id, type FROM Cites").fetchall()
+        return dict(types)
+
+    def get_all_authors(self) -> dict[str, list[str]]:
+        """Hakee tietokannasta viitteen kirjailijat"""
+        authors = {}
+        for id in self.get_all_ids():
+            authors_query = self._database.cursor.execute(
+                "SELECT name FROM Authors WHERE cite_id = ?", (id,)
+            )
+            authors[id] = [author[0] for author in authors_query]
+
+        return authors
+
+    def get_all_fields(self) -> dict[str, dict[str, str]]:
+        """Hakee tietokannasta viitteen tiedot"""
+        fields = {}
+        for id in self.get_all_ids():
+            fields_query = self._database.cursor.execute(
+                "SELECT name, content FROM Fields WHERE cite_id = ?", (id,)
+            )
+            fields[id] = dict(fields_query.fetchall())
+
+        return fields
 
     def remove_all_cites(self) -> None:
         """Poistaa kaikki viitteet."""
