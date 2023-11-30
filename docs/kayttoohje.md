@@ -24,6 +24,10 @@
     poetry run python src/main.py
     ```
 
-## Viitteen lisääminen
+## Käyttö
 
-+ Käynnistä ohjelma ja seuraa näytöllä olevia ohjeita (eli syötä numero 2).
+Käynnistä ohjelma, syötä jokin näytöllä olevasta komennoista ja seuraa näytölle tulevia ohjeita.
+Ohjelmassa on seuraavat toiminnallisuudet:
+- Viitteiden lisäys
+- Viitteiden listaus
+- Viitteiden haku
