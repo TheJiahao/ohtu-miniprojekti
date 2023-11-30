@@ -7,13 +7,14 @@ class AddCiteView(View):
     """Luokka, joka vastaa viitteen lisäysnäkymästä."""
 
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
-        self._types: dict[int, str] = {1: "book", 2: "article"}
+        self._types: dict[int, str] = {1: "book", 2: "article", 3: "journal"}
 
         help_message = "\n".join(
             [
                 "Valitse viitetyyppi:",
                 "1: kirja (book)",
                 "2: artikkeli (article)",
+                "3: julkaisu (journal)"
             ]
         )
 
