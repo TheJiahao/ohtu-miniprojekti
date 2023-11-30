@@ -4,11 +4,7 @@ from ui.view import View
 
 
 class FilterCiteView(View):
-    """Luokka, joka vastaa viitteiden hakunäkymästä.
-
-    Args:
-        View (_type_): _description_
-    """
+    """Luokka, joka vastaa viitteiden hakunäkymästä."""
 
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
         self._filtertypes: dict[int, str] = {1: "name", 2: "author", 3: "id"}
