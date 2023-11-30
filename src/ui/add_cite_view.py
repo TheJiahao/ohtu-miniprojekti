@@ -14,7 +14,7 @@ class AddCiteView(View):
                 "Valitse viitetyyppi:",
                 "1: kirja (book)",
                 "2: artikkeli (article)",
-                "3: julkaisu (journal)"
+                "3: julkaisu (journal)",
             ]
         )
 
