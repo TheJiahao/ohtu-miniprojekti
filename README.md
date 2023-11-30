@@ -10,3 +10,4 @@ Ohtu miniprojekti
 - [Definition of done](/docs/definition_of_done.md)
 - [Käytänteet](/docs/kaytanteet.md)
 - [Arkkitehtuuri](/docs/arkkitehtuuri.md)
+- [Retrodokumentti](retro.md)
