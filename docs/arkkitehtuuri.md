@@ -33,6 +33,8 @@ View <|-- ListCiteView
 UI --> FilterCiteView
 UI --> AddCiteView
 UI --> ListCiteView
+UI --> RemoveCiteView
+
 
 Logic --> CiteValidator
 Logic ..> Cite
@@ -76,6 +78,7 @@ class Logic{
     +get_all_cites()
     +export(path: str, format: str, cites: list[Cite])
     +remove_cite(id: str)
+    +remove_all_cites()
 }
 
 class Cite {
