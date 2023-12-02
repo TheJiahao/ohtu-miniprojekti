@@ -9,10 +9,15 @@
         "--profile=black"
     ],
     "pylint.cwd": "${workspaceFolder}/src",
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
     "pylint.args": [
         "--rcfile=${workspaceFolder}/.pylintrc",
         "--disable=E0401",
         "--disable=E0611",
-    ]
+    ],
+    "[robotframework]": {
+        "editor.defaultFormatter": "robocorp.robotframework-lsp"
+    }
 }
