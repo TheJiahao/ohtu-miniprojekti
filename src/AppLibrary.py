@@ -25,5 +25,8 @@ class AppLibrary:
     def output_contains(self, value):
         outputs = self.io.outputs
 
-        if not value in outputs:
-            raise AssertionError(f"Output {value} is not in {str(outputs)}")
+        for line in outputs:
+            if value in line:
+                return
+
+        raise AssertionError(f"Output {value} is not in {str(outputs)}")
