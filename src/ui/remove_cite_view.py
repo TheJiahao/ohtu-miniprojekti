@@ -17,14 +17,14 @@ class RemoveCiteView(View):
         """Käynnistää poistonäkymän"""
 
         super().start()
-        
+
         type = self._choices[int(self._io.read())]
 
         match type:
             case "id":
                 self._io.write("Syötä viitteen id: \n")
             case "all":
-                self._io.write("Vahvista poisto kirjoittamalla \"vahvista\": \n")
+                self._io.write('Vahvista poisto kirjoittamalla "vahvista": \n')
                 if str(self._io.read()) == "vahvista":
                     self._logic.remove_all_cites()
                 else:
