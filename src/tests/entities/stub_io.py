@@ -1,5 +1,6 @@
 from collections import deque
 
+
 class StubIO:
     """Testauksessa käytettävä luokka, joka vastaa syötteistä ja tulostuksista."""
 
@@ -20,7 +21,7 @@ class StubIO:
         """
         return self.__inputs.popleft()
 
-    def write(self, text: str) -> None:
+    def write(self, text: str, end: str = "") -> None:
         """Lisää tulostuslistaan merkkijonon.
 
         Args:

@@ -1,6 +1,6 @@
 # pylint: skip-file
 
-from infrastructure.stub_io import StubIO
+from tests.entities.stub_io import StubIO
 from repositories.cite_repository import CiteRepository
 from services.logic import Logic
 from ui.ui import UI
