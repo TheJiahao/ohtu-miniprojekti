@@ -1,23 +1,24 @@
 *** Settings ***
-Library  ../../AppLibrary.py
+Library     ../../AppLibrary.py
+
 
 *** Keywords ***
 Run App
-    Input  lopeta
+    Input    lopeta
     Start App
 
 Add Cite
-    [Arguments]  ${choise}  ${type}  ${name}  ${authors}  ${title}  ${year}
-    Input  ${choise}
-    Input  ${type}
-    Input  ${name}
-    Input  ${authors}
-    Input  ${title}
-    Input  ${year}
+    [Arguments]    ${choise}    ${type}    ${name}    ${authors}    ${title}    ${year}
+    Input    ${choise}
+    Input    ${type}
+    Input    ${name}
+    Input    ${authors}
+    Input    ${title}
+    Input    ${year}
 
 Empty Database
     Empty Db
 
 Output Should Contain
-    [Arguments]  ${value}
-    Output Contains  ${value}
+    [Arguments]    ${value}
+    Output Contains    ${value}
