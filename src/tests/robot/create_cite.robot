@@ -1,8 +1,7 @@
 *** Settings ***
-Resource        resource.robot
+Resource            resource.robot
 
-Test Setup      Select Add Cite
-Test Teardown   Empty Database
+Test Teardown       Empty Database
 
 
 *** Test Cases ***
@@ -17,12 +16,14 @@ Add Cite With Incorrect Type
     Incorrect Input
 
 Add Cite With Correct Inputs
-    Add Cite    1    robotesti    Robotti Ruttunen    Robotin ohjekirja    2023
-    Add Cite    2    robo2    Sähkövirta Smith , Aarne Terästähti    Robottien tulevaisuus    1989
+    Select Add Cite
+    Add Cite    book    robotesti    Robotti Ruttunen    Robotin ohjekirja    2023
+    Add Cite    article    robo2    Sähkövirta Smith , Aarne Terästähti    Robottien tulevaisuus    1989
     Run App
 
 Add Journal Type Cite With Correct Inputs
-    Add Cite    3    journaltesti    journalauthor    journaltitle    1984
+    Select Add Cite
+    Add Cite    journal    journaltesti    journalauthor    journaltitle    1984
     Run App
 
 
