@@ -8,13 +8,15 @@ Run App
     Start App
 
 Add Cite
-    [Arguments]    ${choise}    ${type}    ${name}    ${authors}    ${title}    ${year}
-    Input    ${choise}
+    [Arguments]    ${type}    ${name}    ${authors}    ${title}    ${year}
     Input    ${type}
     Input    ${name}
     Input    ${authors}
     Input    ${title}
     Input    ${year}
+
+Select Add Cite
+    Input    lisää
 
 Empty Database
     Empty Db
