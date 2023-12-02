@@ -10,11 +10,12 @@ class ConsoleIO:
 
         return input()
 
-    def write(self, text: str) -> None:
+    def write(self, text: str, end: str = "\n") -> None:
         """Kirjoittaa konsoliin merkkijonon.
 
         Args:
             text (str): Konsoliin kirjoitettava merkkijono.
+            end (str): Merkkijonon päätemerkki.
         """
 
-        print(text, end="")
+        print(text, end=end)
