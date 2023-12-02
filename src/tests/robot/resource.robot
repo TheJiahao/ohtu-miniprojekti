@@ -7,7 +7,7 @@ Run App
     Input    lopeta
     Start App
 
-Add Cite
+Input Cite Data
     [Arguments]    ${type}    ${id}    ${authors}    ${title}    ${year}
     Input    ${type}
     Input    ${id}

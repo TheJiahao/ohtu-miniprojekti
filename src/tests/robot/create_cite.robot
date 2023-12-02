@@ -11,19 +11,19 @@ Add Cite With Incorrect Choice
     Incorrect Input
 
 Add Cite With Incorrect Type
-    Add Cite    eiole    ..    ..    ..    ..
+    Input Cite Data    eiole    ..    ..    ..    ..
     Run App
     Incorrect Input
 
 Add Cite With Correct Inputs
     Select Add Cite
-    Add Cite    book    robotesti    Robotti Ruttunen    Robotin ohjekirja    2023
-    Add Cite    article    robo2    Sähkövirta Smith , Aarne Terästähti    Robottien tulevaisuus    1989
+    Input Cite Data    book    robotesti    Robotti Ruttunen    Robotin ohjekirja    2023
+    Input Cite Data    article    robo2    Sähkövirta Smith , Aarne Terästähti    Robottien tulevaisuus    1989
     Run App
 
 Add Journal Type Cite With Correct Inputs
     Select Add Cite
-    Add Cite    journal    journaltesti    journalauthor    journaltitle    1984
+    Input Cite Data    journal    journaltesti    journalauthor    journaltitle    1984
     Run App
 
 
