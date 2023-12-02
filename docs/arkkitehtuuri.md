@@ -55,7 +55,7 @@ CiteRepository ..> Cite
 
 class ConsoleIO {
     +read()
-    +write(text: str)
+    +write(text: str, end: str)
 }
 
 class View {
@@ -66,7 +66,7 @@ class View {
     +start()
     #show_help()
     #show_cites(cites: list[Cite])
-    #ask_strin(help_message: str)
+    #ask_string(help_message: str)
 }
 
 class UI {
