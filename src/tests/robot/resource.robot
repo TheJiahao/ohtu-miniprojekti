@@ -28,7 +28,3 @@ Select Search Cite
 
 Empty Database
     Empty Db
-
-Output Should Contain
-    [Arguments]    ${value}
-    Output Contains    ${value}

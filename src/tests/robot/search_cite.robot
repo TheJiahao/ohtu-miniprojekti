@@ -11,11 +11,11 @@ Search By Author Should Succeed
     Input    Newton Isaac
     Run App
     Output Should Contain    newton1999principia
-    Output Contains    newton1952opticks
+    Output Should Contain    newton1952opticks
 
 Search By Title Should Succeed
     Select Search Cite
     Input    1
     Input    An introduction to computer science for non-majors using principles of computation
     Run App
-    Output Contains    An introduction to computer science for non-majors using principles of computation
+    Output Should Contain    An introduction to computer science for non-majors using principles of computation

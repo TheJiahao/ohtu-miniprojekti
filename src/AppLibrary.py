@@ -22,7 +22,7 @@ class AppLibrary:
     def empty_db(self):
         self.cite_repository.remove_all_cites()
 
-    def output_contains(self, value):
+    def output_should_contain(self, value: str):
         outputs = self.io.outputs
 
         for line in outputs:
