@@ -17,4 +17,4 @@ class ConsoleIO:
             text (str): Konsoliin kirjoitettava merkkijono.
         """
 
-        print(text)
+        print(text, end="")
