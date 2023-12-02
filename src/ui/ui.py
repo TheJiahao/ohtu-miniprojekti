@@ -31,7 +31,6 @@ class UI(View):
         messages.append("lopeta: Lopeta")
 
         help_message = "\n".join(messages)
-        help_message += "\n"
 
         super().__init__("Sovelluksen päänäkymä", help_message, logic, io)
 

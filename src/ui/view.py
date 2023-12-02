@@ -45,7 +45,7 @@ class View(ABC):
             str: Käyttäjän syöte.
         """
 
-        self._io.write(help_message)
+        self._io.write(help_message, end="")
         value = self._io.read()
         self._io.write("\n")
 

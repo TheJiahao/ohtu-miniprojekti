@@ -22,7 +22,6 @@ class AddCiteView(View):
         )
 
         help_message = "\n".join(messages)
-        help_message += "\n"
 
         super().__init__("Viitteen lisäys", help_message, logic, io)
 
