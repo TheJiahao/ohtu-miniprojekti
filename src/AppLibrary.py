@@ -9,7 +9,7 @@ from ui.ui import UI
 class AppLibrary:
     def __init__(self):
         self.cite_repository = CiteRepository()
-        self.io = StubIO([])
+        self.io = StubIO()
         self.logic = Logic(self.cite_repository)
         self.app = UI(self.logic, self.io)
 
