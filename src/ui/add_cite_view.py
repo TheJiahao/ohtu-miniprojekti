@@ -7,16 +7,22 @@ class AddCiteView(View):
     """Luokka, joka vastaa viitteen lisäysnäkymästä."""
 
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
-        self._types: dict[int, str] = {1: "book", 2: "article", 3: "journal"}
+        self._supported_types: dict[str, str] = {
+            "book": "kirja",
+            "article": "artikkeli",
+            "journal": "julkaisu",
+        }
 
-        help_message = "\n".join(
+        messages = ["Tällä hetkellä tuetut viitetyypit"]
+        messages.extend(
             [
-                "Valitse viitetyyppi:",
-                "1: kirja (book)",
-                "2: artikkeli (article)",
-                "3: julkaisu (journal)",
+                f"{name}: {translation}"
+                for name, translation in self._supported_types.items()
             ]
         )
+
+        help_message = "\n".join(messages)
+        help_message += "\n"
 
         super().__init__("Viitteen lisäys", help_message, logic, io)
 
@@ -27,7 +33,7 @@ class AddCiteView(View):
 
         super().start()
 
-        type = self._types[int(self._io.read())]
+        type = self._ask_string("Syötä viitteen tyyppi: ")
 
         self._io.write("Syötä viitteen nimi: \n")
         id = str(self._io.read())
