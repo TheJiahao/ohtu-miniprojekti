@@ -8,9 +8,9 @@ Run App
     Start App
 
 Add Cite
-    [Arguments]    ${type}    ${name}    ${authors}    ${title}    ${year}
+    [Arguments]    ${type}    ${id}    ${authors}    ${title}    ${year}
     Input    ${type}
-    Input    ${name}
+    Input    ${id}
     Input    ${authors}
     Input    ${title}
     Input    ${year}
