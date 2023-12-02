@@ -47,6 +47,6 @@ class View(ABC):
 
         self._io.write(help_message, end="")
         value = self._io.read()
-        self._io.write("\n")
+        self._io.write("")
 
         return value
