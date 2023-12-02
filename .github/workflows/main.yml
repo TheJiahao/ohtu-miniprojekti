@@ -6,7 +6,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    Test:
+    Unit_Test:
         runs-on: ubuntu-latest
 
         steps:
@@ -21,6 +21,14 @@ jobs:
               uses: codecov/codecov-action@v3
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+    Acceptance_Test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Set up
+              uses: ./setup-action
             - name: Run acceptance tests
               run: poetry run robot src/tests/robot
 
