@@ -34,3 +34,16 @@ class View(ABC):
         for cite in cites:
             self._io.write(cite.id + "  " + cite.type + "  " + cite.fields["title"])
         self._io.write("")
+
+    def _ask_string(self, help_message: str) -> str:
+        """Kysyy käyttäjältä merkkijonon.
+
+        Args:
+            help_message (str): Ohje käyttäjälle.
+
+        Returns:
+            str: Käyttäjän syöte.
+        """
+
+        self._io.write(help_message)
+        return self._io.read()

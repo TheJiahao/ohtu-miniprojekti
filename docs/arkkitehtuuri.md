@@ -66,6 +66,7 @@ class View {
     +start()
     #show_help()
     #show_cites(cites: list[Cite])
+    #ask_strin(help_message: str)
 }
 
 class UI {
