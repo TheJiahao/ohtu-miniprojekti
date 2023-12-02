@@ -25,11 +25,13 @@ class UI(View):
             # "poista": remove_cite_view,
         }
 
-        help_message = "\n".join(
-            [f"{command}: {view.description}" for command, view in self.__views.items()]
-        )
+        messages = [
+            f"{command}: {view.description}" for command, view in self.__views.items()
+        ]
+        messages.append("lopeta: Lopeta")
 
-        help_message += "\nlopeta: Lopeta"
+        help_message = "\n".join(messages)
+        help_message += "\n"
 
         super().__init__("Sovelluksen päänäkymä", help_message, logic, io)
 
@@ -39,7 +41,7 @@ class UI(View):
             self._show_help()
 
             try:
-                choice = self._io.read()
+                choice = self._ask_string("Syötä komento: ")
 
                 if choice == "lopeta":
                     break
