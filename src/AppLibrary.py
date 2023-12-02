@@ -30,3 +30,10 @@ class AppLibrary:
                 return
 
         raise AssertionError(f"Output {value} is not in {str(outputs)}")
+
+    def output_should_not_contain(self, value: str):
+        outputs = self.io.outputs
+
+        for line in outputs:
+            if value in line:
+                raise AssertionError(f"Output should not contain {value}")
