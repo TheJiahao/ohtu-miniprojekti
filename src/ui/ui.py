@@ -22,7 +22,7 @@ class UI(View):
             "lisää": add_cite_view,
             "listaa": list_cite_view,
             "hae": filter_cite_view,
-            # "poista": remove_cite_view,
+            "poista": remove_cite_view,
         }
 
         messages = [
