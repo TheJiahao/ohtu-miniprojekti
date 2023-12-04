@@ -2,6 +2,8 @@ from entities.cite import Cite
 
 
 class BibtexExporter:
+    """Luokka, joka vastaa viitteiden muuntamisesta BibTeX-muotoon."""
+
     @classmethod
     def dump_cite(cls, cite: Cite) -> str:
         """Palauttaa viitteen BibTeX-muodossa kentät järjestettynä.
