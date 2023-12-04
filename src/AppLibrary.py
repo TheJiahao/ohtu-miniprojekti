@@ -8,7 +8,7 @@ from ui.ui import UI
 
 class AppLibrary:
     def __init__(self):
-        self.cite_repository = CiteRepository()
+        self.cite_repo = CiteRepository()
         self.io = StubIO()
         self.logic = Logic(self.cite_repository)
         self.app = UI(self.logic, self.io)
@@ -20,7 +20,7 @@ class AppLibrary:
         self.io.add_input(str(text))
 
     def empty_db(self):
-        self.cite_repository.remove_all_cites()
+        self.cite_repo.remove_all_cites()
 
     def output_should_contain(self, value: str):
         outputs = self.io.outputs
