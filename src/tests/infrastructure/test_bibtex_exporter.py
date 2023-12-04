@@ -1,7 +1,7 @@
 import unittest
 
-from infrastructure.bibtex_exporter import BibtexExporter
 from entities.cite import Cite
+from infrastructure.bibtex_exporter import BibtexExporter
 
 
 class TestBibtexExporter(unittest.TestCase):
