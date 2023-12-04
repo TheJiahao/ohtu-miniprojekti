@@ -191,7 +191,9 @@ class TestCiteRepository(unittest.TestCase):
             self.assertEqual(cite.fields, expected_cite.fields)
 
     def test_remove_cite(self):
-        self.repository.add_cite(Cite("amazingBook", "book", ["Ama Zing"], {"title": "An amazing book"}))
+        self.repository.add_cite(
+            Cite("amazingBook", "book", ["Ama Zing"], {"title": "An amazing book"})
+        )
         self.repository.remove_cite("amazingBook")
 
         cite_data = database.cursor.execute("SELECT * FROM Cites").fetchall()
@@ -203,8 +205,12 @@ class TestCiteRepository(unittest.TestCase):
         self.assertEqual(len(fields), 0)
 
     def test_remove_cite_only_removes_one_cite(self):
-        self.repository.add_cite(Cite("amazingBook", "book", ["Ama Zing"], {"title": "An amazing book"}))
-        self.repository.add_cite(Cite("goodBook", "book", ["Good Book"], {"title": "A good book"}))
+        self.repository.add_cite(
+            Cite("amazingBook", "book", ["Ama Zing"], {"title": "An amazing book"})
+        )
+        self.repository.add_cite(
+            Cite("goodBook", "book", ["Good Book"], {"title": "A good book"})
+        )
         self.repository.remove_cite("amazingBook")
 
         cite_data = database.cursor.execute("SELECT * FROM Cites").fetchall()

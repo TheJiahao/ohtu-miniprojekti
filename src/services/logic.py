@@ -65,7 +65,7 @@ class Logic:
         cites = self.repository.get_all_cites()
         return cites
 
-    def remove_cite(self, id:str) -> None:
+    def remove_cite(self, id: str) -> None:
         """Poistaa tietokannasta viitteen, jolla on annettu id.
 
         Args:
