@@ -35,7 +35,6 @@ class View(ABC):
             self._io.write(cite)
             self._io.write("-----------------")
             self._io.write("")
-<<<<<<< HEAD
 
     def _ask_string(self, help_message: str) -> str:
         """Kysyy käyttäjältä merkkijonon.
@@ -52,5 +51,3 @@ class View(ABC):
         self._io.write("")
 
         return value
-=======
->>>>>>> 15eb69e (Add str method to Cite, list cites in toml format)
