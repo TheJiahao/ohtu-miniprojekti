@@ -97,3 +97,17 @@ year = {1993},
         result = BibtexExporter.dump_cite(self.acm_comminication)
 
         self.assertEqual(result, expected)
+
+    def test_dump(self):
+        expected = ",\n".join(
+            [
+                BibtexExporter.dump_cite(self.relativity_theory),
+                BibtexExporter.dump_cite(self.new_general_relativity),
+                BibtexExporter.dump_cite(self.generalized_integral),
+                BibtexExporter.dump_cite(self.acm_comminication),
+            ]
+        )
+
+        result = BibtexExporter.dump(self.cites)
+
+        self.assertEqual(result, expected)

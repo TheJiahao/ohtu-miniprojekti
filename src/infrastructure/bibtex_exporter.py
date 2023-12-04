@@ -5,6 +5,21 @@ class BibtexExporter:
     """Luokka, joka vastaa viitteiden muuntamisesta BibTeX-muotoon."""
 
     @classmethod
+    def dump(cls, cites: list[Cite]) -> str:
+        """Palauttaa viitteet BibTeX-muodoss, aakkosjärjestyksessä id:n perusteella.
+
+        Args:
+            cites (list[Cite]): Muunnettavat viitteet.
+
+        Returns:
+            str: Viitteet BibTeX-muodossa.
+        """
+
+        cites = sorted(cites)
+
+        return ",\n".join([cls.dump_cite(cite) for cite in cites])
+
+    @classmethod
     def dump_cite(cls, cite: Cite) -> str:
         """Palauttaa viitteen BibTeX-muodossa kentät järjestettynä.
 
