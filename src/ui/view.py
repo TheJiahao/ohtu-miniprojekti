@@ -30,10 +30,12 @@ class View(ABC):
         Args:
             cites (list[Cite]): Tulostettavat viitteet.
         """
-        self._io.write("\n| id | tyyppi | nimi |")
-        for cite in cites:
-            self._io.write(cite.id + "  " + cite.type + "  " + cite.fields["title"])
         self._io.write("")
+        for cite in cites:
+            self._io.write(cite)
+            self._io.write("-----------------")
+            self._io.write("")
+<<<<<<< HEAD
 
     def _ask_string(self, help_message: str) -> str:
         """Kysyy käyttäjältä merkkijonon.
@@ -50,3 +52,5 @@ class View(ABC):
         self._io.write("")
 
         return value
+=======
+>>>>>>> 15eb69e (Add str method to Cite, list cites in toml format)

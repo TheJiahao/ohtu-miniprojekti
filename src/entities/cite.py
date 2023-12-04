@@ -1,3 +1,6 @@
+import toml
+
+
 class Cite:  # pylint: disable=too-few-public-methods
     """Luokka, joka kuvaa viitettä.
 
@@ -29,25 +32,18 @@ class Cite:  # pylint: disable=too-few-public-methods
         self.authors: list[str] = authors or []
         self.fields: dict = fields or {}
 
-    # def __str__(self) -> str:
-    #     """Palauttaa luokan merkkijonona
+    def __str__(self) -> str:
+        """Palauttaa viitteet toml muotoisena merkkijonona
 
-    #     Returns:
-    #         str: Luokka merkkijonona.
-    #     """
+        Returns:
+            str: viitteen tiedot toml muodossa
+        """
 
-    #     return f"""
-    #                 \nID: {self.id:15} TYYPPI: {self.type:8}
-    #                 KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
-    #             """
+        toml_dict = {
+            "Id": self.id,
+            "Tyyppi": self.type,
+            "Kirjoittajat": ", ".join(self.authors),
+            "" "Kentät": self.fields,
+        }
 
-    # def __repr__(self):
-    #     """Palauttaa viitteet merkkijonona
-
-    #     Returns:
-    #         str: Viitteen tiedot
-    #     """
-    #     return f"""
-    #                 ID: {self.id:15} TYYPPI: {self.type:8}
-    #                 KIRJOITTAJAT: {self.authors}    KENTÄT: {self.fields}
-    #             """
+        return toml.dumps(toml_dict)
