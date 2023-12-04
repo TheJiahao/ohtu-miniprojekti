@@ -5,7 +5,7 @@ from entities.cite import Cite
 from services.logic import Logic
 
 
-class TestCite(unittest.TestCase):
+class TestLogic(unittest.TestCase):
     def setUp(self):
         self.repository_mock = Mock()
         self.filter_service_mock = Mock()
@@ -39,3 +39,7 @@ class TestCite(unittest.TestCase):
     # def test_filter_cites_doesnt_call_filter_by_name_when_not_search(self):
     #     self.logic.filter_cites("Tes", {"authors"})
     #     self.filter_service_mock.filter_by_name.assert_not_called()
+
+    def test_remove_cite(self):
+        self.logic.remove_cite("123")
+        self.repository_mock.remove_cite.assert_called()

@@ -98,5 +98,14 @@ class CiteRepository:
 
         self._database.initialize()
 
+    def remove_cite(self, id:str) -> None:
+        """Poistaa tietokannasta viitteen, jolla on annettu id.
+
+        Args:
+            id (str): Poistettavan viitteen id
+        """
+        self._database.cursor.execute("""DELETE FROM Cites WHERE id = ?""",(id,))
+        self._database.connection.commit()
+
 
 cite_repository = CiteRepository()

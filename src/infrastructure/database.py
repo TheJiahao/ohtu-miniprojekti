@@ -13,7 +13,7 @@ class Database:
         self.connection: Connection = connect(DATABASE_FILE_PATH)
         self.connection.row_factory = Row
         self.cursor: Cursor = self.connection.cursor()
-
+        self.cursor.execute("PRAGMA foreign_keys=ON")
         if os.path.getsize(DATABASE_FILE_PATH) == 0:
             self.initialize()
 
@@ -32,7 +32,7 @@ class Database:
         self.cursor.execute(
             """
             CREATE TABLE Authors (
-                cite_id TEXT REFERENCES Cites,
+                cite_id TEXT REFERENCES Cites ON DELETE CASCADE,
                 name TEXT
             )
             """
@@ -41,7 +41,7 @@ class Database:
         self.cursor.execute(
             """
             CREATE TABLE Fields (
-                cite_id TEXT REFERENCES Cites,
+                cite_id TEXT REFERENCES Cites ON DELETE CASCADE,
                 name TEXT,
                 content TEXT
             )
