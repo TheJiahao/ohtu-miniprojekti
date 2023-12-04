@@ -47,3 +47,21 @@ class Cite:  # pylint: disable=too-few-public-methods
         }
 
         return toml.dumps(toml_dict)
+
+    def __lt__(self, other: "Cite") -> bool:
+        return self.id < other.id
+
+    def __le__(self, other: "Cite") -> bool:
+        return self < other or self == other
+
+    def __eq__(self, other: "Cite") -> bool:
+        return self.id == other.id
+
+    def __ne__(self, other: "Cite") -> bool:
+        return not self == other
+
+    def __gt__(self, other: "Cite") -> bool:
+        return self.id > other.id
+
+    def __ge__(self, other: "Cite") -> bool:
+        return self > other or self == other

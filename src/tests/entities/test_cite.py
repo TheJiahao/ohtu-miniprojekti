@@ -30,3 +30,15 @@ class TestCite(unittest.TestCase):
             "\nyear = 3202"
             '\ntitle = "Someone"\n',
         )
+
+    def test_compare_lt(self):
+        self.assertTrue(Cite("aa", "book") < Cite("ab", "book"))
+
+    def test_compare_eq(self):
+        self.assertTrue(Cite("abc", "book") == Cite("abc", "article"))
+
+    def test_compare_ne(self):
+        self.assertTrue(Cite("xxxxx", "book") != Cite("yyyy", "book"))
+
+    def test_compare_gt(self):
+        self.assertTrue(Cite("xyz", "book") > Cite("abc", "book"))
