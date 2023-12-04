@@ -27,7 +27,7 @@ class StubIO:
         Args:
             text (str): Tulostukseen lisättävä merkkijono
         """
-        self.outputs.append(text)
+        self.outputs.append(str(text))
 
     def add_input(self, text: str) -> None:
         """Lisää syötelistan loppuun uuden syötten.
