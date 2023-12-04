@@ -16,3 +16,11 @@ class TestBibtexExporter(unittest.TestCase):
         result = BibtexExporter.dump_list(data)
 
         self.assertEqual(result, "{Alan Turing and Newton Isaac and Albert Einstein}")
+
+    def test_dump_string(self):
+        data = "One line of something"
+
+        self.assertEqual(BibtexExporter.dump_string(data), "{One line of something}")
+
+    def test_dump_empty_string(self):
+        self.assertEqual(BibtexExporter.dump_string(""), "{}")

@@ -15,3 +15,15 @@ class BibtexExporter:
 
         return f"{{{' and '.join(data)}}}"
 
+    @classmethod
+    def dump_string(cls, data: str) -> str:
+        """Palauttaa merkkijonon BibTeX-kentän arvona.
+
+        Args:
+            data (list[str]): Arvoksi muutettava merkkijono.
+
+        Returns:
+            str: Merkkijono BibTeX-kentän arvona.
+        """
+
+        return f"{{{data}}}"
