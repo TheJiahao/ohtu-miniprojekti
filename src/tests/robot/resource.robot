@@ -26,5 +26,11 @@ Select Add Cite
 Select Search Cite
     Input    hae
 
+Select Remove Cite
+    Input    poista
+
+Select List Cites
+    Input    listaa
+
 Empty Database
     Empty Db
