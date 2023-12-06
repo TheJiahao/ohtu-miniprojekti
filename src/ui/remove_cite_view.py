@@ -26,7 +26,7 @@ class RemoveCiteView(View):
             case "all":
                 choice = self._ask_string('Vahvista poisto kirjoittamalla "vahvista": ')
                 if choice == "vahvista":
-                    self._logic.remove_all_cites()
+                    self._logic.remove_all()
                 else:
                     print("Viitteitä ei poistettu")
                     return

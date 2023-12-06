@@ -73,3 +73,12 @@ class Logic:
         """
 
         self.repository.remove_cite(id)
+
+    def remove_all(self) -> None:
+        """Poistaa kaikki viitteet
+
+        Args:
+            id (str): Poistettavan viitteen id
+        """
+
+        self.repository.remove_all_cites()       

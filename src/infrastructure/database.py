@@ -55,12 +55,6 @@ class Database:
 
         self.cursor.execute(
             """
-            DROP TABLE IF EXISTS Cites
-            """
-        )
-
-        self.cursor.execute(
-            """
             DROP TABLE IF EXISTS Authors
             """
         )
@@ -68,6 +62,12 @@ class Database:
         self.cursor.execute(
             """
             DROP TABLE IF EXISTS Fields
+            """
+        )
+
+        self.cursor.execute(
+            """
+            DROP TABLE IF EXISTS Cites
             """
         )
 
