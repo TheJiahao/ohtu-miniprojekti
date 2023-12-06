@@ -1,3 +1,4 @@
+import sqlite3
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 from ui.view import View
@@ -43,4 +44,9 @@ class AddCiteView(View):
         fields["title"] = self._ask_string("Syötä otsikko (title): ")
         fields["year"] = self._ask_string("Syötä vuosi (year): ")
 
-        self._logic.create_cite(id, type, authors, fields)
+        try:
+            self._logic.create_cite(id, type, authors, fields)
+            self._io.write("Viite lisätty.\n")
+
+        except sqlite3.IntegrityError:
+            self._io.write("Viitteen lisäys epäonnistui.\n")
