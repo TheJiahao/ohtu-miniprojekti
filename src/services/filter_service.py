@@ -54,12 +54,12 @@ class FilterService:
 
         Returns:
             list[Cite]: lista viiteolioita, jotka sopivat hakusanaan
+            palauttaa tyhjän listan, jos viite id:llä ei löydy viitettä
         """
 
         cites = self.repository.get_all_cites()
-        if int(id) < 1:
-            return cites
-        filtered_cites = [cite for cite in cites if id in list(cite.id)]
+
+        filtered_cites = [cite for cite in cites if id in cite.id ]
         return filtered_cites
 
     # def filter_by_tag(tag: str) -> list[Cite]:
