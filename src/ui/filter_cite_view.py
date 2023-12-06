@@ -10,8 +10,9 @@ class FilterCiteView(View):
         self._filtertypes: dict[int, str] = {1: "name", 2: "author", 3: "id"}
 
         help_message = "\n".join(
-            ["Valitse hakutyyppi:", "1: nimi", "2: kirjailija", "3: id"]
+            ["1: nimi", "2: kirjailija", "3: id", "Syötä hakutyyppi: "]
         )
+
         super().__init__("Viitteiden haku", help_message, logic, io)
 
     def start(self) -> None:
@@ -23,13 +24,12 @@ class FilterCiteView(View):
 
         match type:
             case "name":
-                self._io.write("Syötä viitteen nimi: \n")
+                search = self._ask_string("Hae nimellä: ")
             case "author":
-                self._io.write("Syötä kirjailija: \n")
+                search = self._ask_string("Hae kirjoittajalla: ")
             case "id":
-                self._io.write("Syötä id: \n")
+                search = self._ask_string("Hae id:llä: ")
 
         filters = {type}
-        search = str(self._io.read())
 
         super().show_cites(self._logic.filter_cites(search, filters))
