@@ -81,4 +81,4 @@ class Logic:
             id (str): Poistettavan viitteen id
         """
 
-        self.repository.remove_all_cites()       
+        self.repository.remove_all_cites()
