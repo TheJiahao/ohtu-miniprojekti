@@ -1,4 +1,5 @@
 import sqlite3
+
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 from ui.view import View
