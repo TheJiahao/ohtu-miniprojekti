@@ -33,19 +33,14 @@ class AddCiteView(View):
         super().start()
 
         type = self._ask_string("Syötä viitteen tyyppi: ")
-
-        self._io.write("Syötä viitteen nimi: \n")
-        id = str(self._io.read())
+        id = self._ask_string("Syötä viitteen nimi: ")
 
         # Seuraavaksi tulisi tyypistä riippuen eri kenttien kyselyitä
 
-        self._io.write("Syötä kirjailijat (authors), erota pilkulla: \n")
-        authors = (self._io.read()).split(", ")
-
-        self._io.write("Syötä otsikko (title): \n")
-        fields["title"] = self._io.read()
-
-        self._io.write("Syötä vuosi (year): \n")
-        fields["year"] = self._io.read()
+        authors = self._ask_string(
+            "Syötä kirjailijat (authors), erota pilkulla: "
+        ).split(", ")
+        fields["title"] = self._ask_string("Syötä otsikko (title): ")
+        fields["year"] = self._ask_string("Syötä vuosi (year): ")
 
         self._logic.create_cite(id, type, authors, fields)
