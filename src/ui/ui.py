@@ -36,11 +36,15 @@ class UI(View):
 
     def start(self):
         """Käynnistää sovelluksen."""
-        while True:
-            self._show_help()
 
+        self.welcome_messages()
+
+        while True:
             try:
                 choice = self._ask_string("Syötä komento: ")
+                if choice == "help":
+                    self._show_help()
+                    continue
 
                 if choice == "lopeta":
                     break
@@ -58,3 +62,9 @@ class UI(View):
         """
         cites = self._logic.get_all_cites()
         return cites
+
+    def welcome_messages(self):
+        """Tulostaa sovelluksen käynnistyksen yhteydessä näytettävät tervetuloviestit."""
+
+        print("Tervetuloa viitteidenhallinta-sovellukseen!")
+        print("Syötä 'help' nähdäksesi eri komennot.")
