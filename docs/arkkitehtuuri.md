@@ -35,8 +35,6 @@ UI --> AddCiteView
 UI --> ListCiteView
 UI --> RemoveCiteView
 
-
-Logic --> CiteValidator
 Logic ..> Cite
 Logic --> CiteRepository
 Logic --> FilterService
@@ -67,6 +65,7 @@ class View {
     #show_help()
     #show_cites(cites: list[Cite])
     #ask_string(help_message: str)
+    #ask_confirm(help_message: str, confirm: str)
 }
 
 class UI {
@@ -98,6 +97,7 @@ class CiteRepository {
 
 class Database {
     +connection: sqlite3.Connection
+    +cursor: sqlite3.Cursor
 }
 
 class BibtexExporter {
@@ -106,10 +106,6 @@ class BibtexExporter {
 
 class ExportService {
     +export(path: str, format: str, cites: list[Cite])
-}
-
-class CiteValidator {
-    +get_fields(type: str)
 }
 
 class FilterService {
