@@ -15,6 +15,10 @@ Retrospektiivi pidettiin Start, Stop, Continue, More of, Less of Wheel -menetelm
 
 ## 7.12.2023
 
+Retrospektiivi edelleen Start, Stop, Continue, More of, Less of Wheel -menetelmällä, mutta tällä kertaa ei ollut post it -lappuja.
+
+![Retro 7.12.](docs/img/retro_2023_12_07.jpeg)
+
 - Low-priority taskeja ei checkoutata etukäteen.
 - Noudatetaan tiukemmin sovittua commit viesti muotoa.
 - Arkkitehtuuria seurataan tarkemmin, ilmoitetaan kaikille, jos muuttaa julkisia metodeja.
