@@ -25,8 +25,6 @@ class TestCite(unittest.TestCase):
             'Id = "amazing article"'
             '\nTyyppi = "article"'
             '\nKirjoittajat = "Alice, Bob"'
-            ""
-            '\n\n["Kentät"]'
             "\nyear = 3202"
             '\ntitle = "Someone"\n',
         )

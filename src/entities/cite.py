@@ -43,7 +43,7 @@ class Cite:  # pylint: disable=too-few-public-methods
             "Id": self.id,
             "Tyyppi": self.type,
             "Kirjoittajat": ", ".join(self.authors),
-            "" "Kentät": self.fields,
+            **self.fields,
         }
 
         return toml.dumps(toml_dict)
