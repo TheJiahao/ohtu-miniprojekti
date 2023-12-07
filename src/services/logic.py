@@ -74,7 +74,7 @@ class Logic:
 
         self.repository.remove_cite(id)
 
-    def remove_all(self) -> None:
+    def remove_all_cites(self) -> None:
         """Poistaa kaikki viitteet"""
 
         self.repository.remove_all_cites()
