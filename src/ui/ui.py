@@ -66,5 +66,5 @@ class UI(View):
     def welcome_messages(self):
         """Tulostaa sovelluksen käynnistyksen yhteydessä näytettävät tervetuloviestit."""
 
-        print("Tervetuloa viitteidenhallinta-sovellukseen!")
-        print("Syötä 'help' nähdäksesi eri komennot.")
+        self._io.write("Tervetuloa viitteidenhallinta-sovellukseen!")
+        self._io.write("Syötä 'help' nähdäksesi eri komennot.")
