@@ -12,3 +12,11 @@ Retrospektiivi pidettiin Start, Stop, Continue, More of, Less of Wheel -menetelm
 - Discordiin tilannepäivityskanava, johon päivitellään tilannetta useammin kuin daily scrum
 - Kartoitetaan osaamistasot ennen työjakoa
 - Lyhennetään valmisteluaikaa ennen asiakastapaamista puolella tunnilla
+
+## 7.12.2023
+
+- Low-priority taskeja ei checkoutata etukäteen.
+- Noudatetaan tiukemmin sovittua commit viesti muotoa.
+- Arkkitehtuuria seurataan tarkemmin, ilmoitetaan kaikille, jos muuttaa julkisia metodeja.
+- Kattavampia testejä
+- Säästetään enemmän aikaa testaukselle.
