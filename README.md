@@ -11,3 +11,4 @@ Ohtu miniprojekti
 - [Käytänteet](/docs/kaytanteet.md)
 - [Arkkitehtuuri](/docs/arkkitehtuuri.md)
 - [Retrodokumentti](retro.md)
+- [Hyväksymistestit](/src/tests/robot/)
