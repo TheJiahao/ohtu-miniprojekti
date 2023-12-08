@@ -40,6 +40,11 @@ class TestFilterService(unittest.TestCase):
             [self.cites[0], self.cites[2]],
         )
 
+    def test_author_filter_substring_returns_filtered_cites(self):
+        self.assertEqual(
+            self.filter_service.filter_by_author("r2"), [self.cites[0], self.cites[2]]
+        )
+
     def test_author_filter_returns_all_cites_with_empty_search(self):
         self.assertEqual(self.filter_service.filter_by_author(""), self.cites)
 

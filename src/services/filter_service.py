@@ -39,10 +39,10 @@ class FilterService:
         if author == "":
             return cites
 
+        author = author.lower()
+
         filtered_cites = [
-            cite
-            for cite in cites
-            if author.lower() in [c.lower() for c in cite.authors]
+            cite for cite in cites if any(author in c.lower() for c in cite.authors)
         ]
         return filtered_cites
 
