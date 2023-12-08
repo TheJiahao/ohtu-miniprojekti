@@ -16,7 +16,7 @@ class UI(View):
         add_cite_view = AddCiteView(logic, io)
         list_cite_view = ListCiteView(logic, io)
         filter_cite_view = FilterCiteView(logic, io)
-        remove_cite_view = RemoveCiteView(logic, io)  # pylint: disable=unused-variable
+        remove_cite_view = RemoveCiteView(logic, io)
 
         self.__views: dict[str, View] = views or {
             "lisää": add_cite_view,
