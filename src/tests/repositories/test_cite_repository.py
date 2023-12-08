@@ -239,5 +239,3 @@ class TestCiteRepository(unittest.TestCase):
         self.assertEqual(len(cite_data), 0)
         self.assertEqual(len(authors), 0)
         self.assertEqual(len(fields), 0)
-
-
