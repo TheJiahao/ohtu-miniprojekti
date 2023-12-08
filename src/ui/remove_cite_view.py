@@ -17,7 +17,7 @@ class RemoveCiteView(View):
         """Käynnistää poistonäkymän"""
 
         super().start()
-        
+
         try:
             type = self._choices[self._io.read()]
         except (ValueError, KeyError):

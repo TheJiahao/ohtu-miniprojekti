@@ -7,7 +7,11 @@ class FilterCiteView(View):
     """Luokka, joka vastaa viitteiden hakunäkymästä."""
 
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
-        self._filtertypes: dict[int, str] = {"nimi": "name", "kirjailija": "author", "id": "id"}
+        self._filtertypes: dict[int, str] = {
+            "nimi": "name",
+            "kirjailija": "author",
+            "id": "id",
+        }
 
         help_message = "\n".join(
             ["nimi: nimi", "kirjailija: kirjailija", "id: id", "Syötä hakutyyppi: "]
