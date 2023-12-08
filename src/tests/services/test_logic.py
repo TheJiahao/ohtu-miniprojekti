@@ -43,3 +43,7 @@ class TestLogic(unittest.TestCase):
     def test_remove_cite(self):
         self.logic.remove_cite("123")
         self.repository_mock.remove_cite.assert_called()
+
+    def test_remova_all_cites(self):
+        self.logic.remove_all_cites()
+        self.repository_mock.remove_all_cites.assert_called()
