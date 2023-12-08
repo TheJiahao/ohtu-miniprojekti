@@ -7,9 +7,9 @@ class RemoveCiteView(View):
     """Luokka, joka vastaa viitteiden poistonäkymästä."""
 
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
-        self._choices: dict[int, str] = {1: "id", 2: "all"}
+        self._choices: dict[str, str] = {"id": "id", "kaikki": "all"}
 
-        help_message = "\n".join(["1: id", "2: kaikki", "Syötä poistotapa:"])
+        help_message = "\n".join(["id: id", "kaikki: kaikki", "Syötä poistotapa:"])
 
         super().__init__("Viitteiden poisto", help_message, logic, io)
 
@@ -18,11 +18,11 @@ class RemoveCiteView(View):
 
         super().start()
         
-        if int(self._io.read()) > len(self._choices):
-            print("virheellinen syöte")
+        try:
+            type = self._choices[self._io.read()]
+        except (ValueError, KeyError):
+            self._io.write("virheellinen syöte")
             return
-        
-        type = self._choices[int(self._io.read())]
 
         match type:
             case "id":

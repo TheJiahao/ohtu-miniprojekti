@@ -7,10 +7,10 @@ class FilterCiteView(View):
     """Luokka, joka vastaa viitteiden hakunäkymästä."""
 
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
-        self._filtertypes: dict[int, str] = {1: "name", 2: "author", 3: "id"}
+        self._filtertypes: dict[int, str] = {"nimi": "name", "kirjailija": "author", "id": "id"}
 
         help_message = "\n".join(
-            ["1: nimi", "2: kirjailija", "3: id", "Syötä hakutyyppi: "]
+            ["nimi: nimi", "kirjailija: kirjailija", "id: id", "Syötä hakutyyppi: "]
         )
 
         super().__init__("Viitteiden haku", help_message, logic, io)
@@ -20,7 +20,11 @@ class FilterCiteView(View):
 
         super().start()
 
-        type = self._filtertypes[int(self._io.read())]
+        try:
+            type = self._filtertypes[self._io.read()]
+        except (ValueError, KeyError):
+            self._io.write("virheellinen syöte")
+            return
 
         match type:
             case "name":
