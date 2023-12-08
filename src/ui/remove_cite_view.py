@@ -17,7 +17,11 @@ class RemoveCiteView(View):
         """Käynnistää poistonäkymän"""
 
         super().start()
-
+        
+        if int(self._io.read()) > len(self._choices):
+            print("virheellinen syöte")
+            return
+        
         type = self._choices[int(self._io.read())]
 
         match type:
