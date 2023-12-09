@@ -1,9 +1,9 @@
 import os
 import unittest
 
+from config import DATA_DIRECTORY
 from entities.cite import Cite
 from infrastructure.bibtex_exporter import BibtexExporter
-from config import DATA_DIRECTORY
 
 
 class TestBibtexExporter(unittest.TestCase):
