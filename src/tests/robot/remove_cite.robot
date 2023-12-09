@@ -13,7 +13,7 @@ Remove Cite By Correct Id Should Succeed
     Output Should Not Contain    Cortina Thomas J.
     Output Should Not Contain    An introduction to computer science for non-majors using principles of computation
     Output Should Not Contain    2007
-    
+
 Remove Cite By Incorrect Id Should Not Remove Anything
     Select Remove Cite
     Select Remove By Id
@@ -38,7 +38,7 @@ Remove Cite By Incorrect Removal Method Should Not Remove Anything
 
 *** Keywords ***
 Incorrect Input
-    Output Should Contain    Toimintoa ei olemassa tai ei toteutettu vielä.
+    Output Should Contain    virheellinen syöte
 
 Select Remove By Id
-    Input    1
+    Input    id

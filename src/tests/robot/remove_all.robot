@@ -30,4 +30,4 @@ Incorrect Input
     Output Should Contain    Toimintoa ei olemassa tai ei toteutettu vielä.
 
 Select Remove All
-    Input    2
+    Input    kaikki
