@@ -1,6 +1,8 @@
 *** Settings ***
 Resource        sample_cites.robot
+
 Test Setup      Clear Database And Add Sample Cites
+
 
 *** Test Cases ***
 Remove Cite By Correct Id Should Succeed
@@ -35,6 +37,7 @@ Remove Cite By Incorrect Removal Method Should Not Remove Anything
     Output Should Contain    libsvm
     Output Should Contain    newton1999principia
     Output Should Contain    newton1952opticks
+
 
 *** Keywords ***
 Incorrect Input
