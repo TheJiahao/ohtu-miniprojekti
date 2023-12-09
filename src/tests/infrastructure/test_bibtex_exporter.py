@@ -9,7 +9,12 @@ from config import DATA_DIRECTORY
 class TestBibtexExporter(unittest.TestCase):
     def setUp(self):
         self.exporter = BibtexExporter()
-        self.path = os.path.join(DATA_DIRECTORY, "test", "test_file")
+        self.path = os.path.join(DATA_DIRECTORY, "test", "test_file.bib")
+
+        try:
+            os.remove(self.path)
+        except OSError:
+            pass
 
         self.acm_comminication = Cite(
             "weiser1993some",
@@ -118,6 +123,19 @@ year = {1993},
         result = self.exporter._BibtexExporter__dump(self.cites)
 
         self.assertEqual(result, expected)
+
+    def test_export_adds_file_extension(self):
+        file_basename = os.path.splitext(self.path)[0]
+
+        try:
+            os.remove(file_basename)
+        except FileNotFoundError:
+            pass
+
+        self.exporter.export(file_basename, self.cites)
+
+        self.assertNotEqual(os.path.getsize(self.path), 0)
+        self.assertFalse(os.path.exists(file_basename))
 
     def test_export_empty_list_writes_nothing(self):
         self.exporter.export(self.path, [])

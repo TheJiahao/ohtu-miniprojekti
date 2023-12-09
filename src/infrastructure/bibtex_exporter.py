@@ -1,3 +1,5 @@
+import os
+
 from entities.cite import Cite
 
 
@@ -12,6 +14,10 @@ class BibtexExporter:
             path (str): Polku kirjoitettavaan tiedostoon.
             cites (list[Cite]): Kirjoitettavat viitteet.
         """
+        file_basename, file_extension = os.path.splitext(path)
+
+        if file_extension != ".bib":
+            path = file_basename + ".bib"
 
         data = self.__dump(cites)
 
