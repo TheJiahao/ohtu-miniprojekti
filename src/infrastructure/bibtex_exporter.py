@@ -5,7 +5,7 @@ class BibtexExporter:
     """Luokka, joka vastaa viitteiden muuntamisesta BibTeX-muotoon."""
 
     def __dump(self, cites: list[Cite]) -> str:
-        """Palauttaa viitteet BibTeX-muodoss, aakkosjärjestyksessä id:n perusteella.
+        """Palauttaa viitteet BibTeX-muodossa, aakkosjärjestyksessä id:n perusteella.
 
         Args:
             cites (list[Cite]): Muunnettavat viitteet.
