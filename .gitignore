@@ -5,3 +5,5 @@ htmlcov
 *.db
 *.xml
 *.html
+data/test/**
+!.gitkeep

@@ -9,5 +9,6 @@ try:
 except FileNotFoundError:
     pass
 
+DATA_DIRECTORY = os.path.join(dirname, "..", "data")
 DATABASE_FILENAME = os.getenv("DATABASE_FILENAME") or "database.db"
-DATABASE_FILE_PATH = os.path.join(dirname, "..", "data", DATABASE_FILENAME)
+DATABASE_FILE_PATH = os.path.join(DATA_DIRECTORY, DATABASE_FILENAME)
