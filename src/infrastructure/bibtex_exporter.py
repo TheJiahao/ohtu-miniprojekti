@@ -4,8 +4,7 @@ from entities.cite import Cite
 class BibtexExporter:
     """Luokka, joka vastaa viitteiden muuntamisesta BibTeX-muotoon."""
 
-    @classmethod
-    def dump(cls, cites: list[Cite]) -> str:
+    def __dump(self, cites: list[Cite]) -> str:
         """Palauttaa viitteet BibTeX-muodoss, aakkosjärjestyksessä id:n perusteella.
 
         Args:
@@ -17,10 +16,9 @@ class BibtexExporter:
 
         cites = sorted(cites)
 
-        return ",\n".join([cls.dump_cite(cite) for cite in cites])
+        return ",\n".join([self.__dump_cite(cite) for cite in cites])
 
-    @classmethod
-    def dump_cite(cls, cite: Cite) -> str:
+    def __dump_cite(self, cite: Cite) -> str:
         """Palauttaa viitteen BibTeX-muodossa kentät järjestettynä.
 
         Args:
@@ -32,10 +30,10 @@ class BibtexExporter:
 
         lines = [f"@{cite.type}{{{cite.id}"]
 
-        fields = [f"author = {cls.dump_list(cite.authors)}"]
+        fields = [f"author = { self.__dump_list(cite.authors)}"]
         fields.extend(
             [
-                f"{name} = {cls.dump_string(content)}"
+                f"{name} = { self.__dump_string(content)}"
                 for name, content in cite.fields.items()
             ]
         )
@@ -45,8 +43,7 @@ class BibtexExporter:
 
         return ",\n".join(lines)
 
-    @classmethod
-    def dump_list(cls, data: list[str]) -> str:
+    def __dump_list(self, data: list[str]) -> str:
         """Palauttaa listan BibTeX-kentän arvona ja järjestettynä.
 
         Args:
@@ -58,8 +55,7 @@ class BibtexExporter:
 
         return f"{{{' and '.join(data)}}}"
 
-    @classmethod
-    def dump_string(cls, data: str) -> str:
+    def __dump_string(self, data: str) -> str:
         """Palauttaa merkkijonon BibTeX-kentän arvona.
 
         Args:

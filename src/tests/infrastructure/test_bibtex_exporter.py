@@ -6,6 +6,8 @@ from infrastructure.bibtex_exporter import BibtexExporter
 
 class TestBibtexExporter(unittest.TestCase):
     def setUp(self):
+        self.exporter = BibtexExporter()
+
         self.acm_comminication = Cite(
             "weiser1993some",
             "article",
@@ -66,24 +68,26 @@ class TestBibtexExporter(unittest.TestCase):
         ]
 
     def test_dump_empty_list(self):
-        result = BibtexExporter.dump_list([])
+        result = self.exporter._BibtexExporter__dump_list([])
 
         self.assertEqual(result, "{}")
 
     def test_dump_list(self):
         data = ["Alan Turing", "Newton Isaac", "Albert Einstein"]
 
-        result = BibtexExporter.dump_list(data)
+        result = self.exporter._BibtexExporter__dump_list(data)
 
         self.assertEqual(result, "{Alan Turing and Newton Isaac and Albert Einstein}")
 
     def test_dump_string(self):
         data = "One line of something"
 
-        self.assertEqual(BibtexExporter.dump_string(data), "{One line of something}")
+        self.assertEqual(
+            self.exporter._BibtexExporter__dump_string(data), "{One line of something}"
+        )
 
     def test_dump_empty_string(self):
-        self.assertEqual(BibtexExporter.dump_string(""), "{}")
+        self.assertEqual(self.exporter._BibtexExporter__dump_string(""), "{}")
 
     def test_dump_cite(self):
         expected = """@article{weiser1993some,
@@ -94,20 +98,20 @@ volume = {36},
 year = {1993},
 }"""
 
-        result = BibtexExporter.dump_cite(self.acm_comminication)
+        result = self.exporter._BibtexExporter__dump_cite(self.acm_comminication)
 
         self.assertEqual(result, expected)
 
     def test_dump(self):
         expected = ",\n".join(
             [
-                BibtexExporter.dump_cite(self.relativity_theory),
-                BibtexExporter.dump_cite(self.new_general_relativity),
-                BibtexExporter.dump_cite(self.generalized_integral),
-                BibtexExporter.dump_cite(self.acm_comminication),
+                self.exporter._BibtexExporter__dump_cite(self.relativity_theory),
+                self.exporter._BibtexExporter__dump_cite(self.new_general_relativity),
+                self.exporter._BibtexExporter__dump_cite(self.generalized_integral),
+                self.exporter._BibtexExporter__dump_cite(self.acm_comminication),
             ]
         )
 
-        result = BibtexExporter.dump(self.cites)
+        result = self.exporter._BibtexExporter__dump(self.cites)
 
         self.assertEqual(result, expected)
