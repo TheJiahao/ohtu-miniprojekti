@@ -1,12 +1,15 @@
+import os
 import unittest
 
 from entities.cite import Cite
 from infrastructure.bibtex_exporter import BibtexExporter
+from config import DATA_DIRECTORY
 
 
 class TestBibtexExporter(unittest.TestCase):
     def setUp(self):
         self.exporter = BibtexExporter()
+        self.path = os.path.join(DATA_DIRECTORY, "test", "test_file")
 
         self.acm_comminication = Cite(
             "weiser1993some",
@@ -115,3 +118,16 @@ year = {1993},
         result = self.exporter._BibtexExporter__dump(self.cites)
 
         self.assertEqual(result, expected)
+
+    def test_export_empty_list_writes_nothing(self):
+        self.exporter.export(self.path, [])
+        self.assertEqual(os.path.getsize(self.path), 0)
+
+    def test_export(self):
+        self.exporter.export(self.path, self.cites)
+        data = ""
+
+        with open(self.path, mode="r", encoding="utf-8") as file:
+            data = file.read()
+
+        self.assertEqual(data, self.exporter._BibtexExporter__dump(self.cites))
