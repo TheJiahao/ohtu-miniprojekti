@@ -14,6 +14,7 @@ class BibtexExporter:
             path (str): Polku kirjoitettavaan tiedostoon.
             cites (list[Cite]): Kirjoitettavat viitteet.
         """
+
         file_basename, file_extension = os.path.splitext(path)
 
         if file_extension != ".bib":
