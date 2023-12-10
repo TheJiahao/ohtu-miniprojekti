@@ -1,6 +1,10 @@
+import os
+
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 from ui.view import View
+
+from config import DATA_DIRECTORY
 
 
 class ExportCiteView(View):
@@ -13,4 +17,13 @@ class ExportCiteView(View):
         """Vie kaikki viitteet."""
 
         super().start()
-        self._logic.export("export/cites", "bibtex", self._logic.get_all_cites())
+        name = self._ask_string(
+            "Syötä viitetiedoston nimi (ilman tiedoston päätettä): "
+        )
+
+        if name == "robot_test":
+            path = os.path.join(DATA_DIRECTORY, "test", name)
+        else:
+            path = os.path.join(DATA_DIRECTORY, name)
+
+        self._logic.export(path, "bibtex", self._logic.get_all_cites())
