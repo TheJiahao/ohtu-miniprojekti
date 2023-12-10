@@ -1,10 +1,10 @@
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 from ui.add_cite_view import AddCiteView
+from ui.export_cite_view import ExportCiteView
 from ui.filter_cite_view import FilterCiteView
 from ui.list_cite_view import ListCiteView
 from ui.remove_cite_view import RemoveCiteView
-from ui.export_cite_view import ExportCiteView
 from ui.view import View
 
 

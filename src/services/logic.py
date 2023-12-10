@@ -2,8 +2,8 @@ from typing import Callable
 
 from entities.cite import Cite
 from repositories.cite_repository import CiteRepository, cite_repository
-from services.filter_service import FilterService
 from services.export_service import ExportService
+from services.filter_service import FilterService
 
 
 class Logic:
