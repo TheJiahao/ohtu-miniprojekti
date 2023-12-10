@@ -51,3 +51,8 @@ class View(ABC):
         self._io.write("")
 
         return value
+
+    def _ask_confirm(self, question: str) -> bool:
+        self._io.write(f"{question} (vahvista/lopeta): ", end="")
+        response = self._io.read().strip().lower()
+        return response == "vahvista"

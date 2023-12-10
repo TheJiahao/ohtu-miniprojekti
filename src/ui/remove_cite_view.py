@@ -27,12 +27,11 @@ class RemoveCiteView(View):
         match type:
             case "id":
                 choice = self._ask_string("Syötä viitteen id: ")
-            case "all":
-                choice = self._ask_string('Vahvista poisto kirjoittamalla "vahvista": ')
-                if choice == "vahvista":
-                    self._logic.remove_all_cites()
-                else:
-                    print("Viitteitä ei poistettu")
-                    return
+                self._logic.remove_cite(choice)
 
-        self._logic.remove_cite(choice)
+            case "all":
+                if self._ask_confirm("Vahvista kaikkien viitteiden poisto"):
+                    self._logic.remove_all_cites()
+                    self._io.write("Kaikki viitteet poistettu\n")
+                else:
+                    self._io.write("Viitteitä ei poistettu\n")
