@@ -32,5 +32,8 @@ Select Remove Cite
 Select List Cites
     Input    listaa
 
+Select Export Cites
+    Input    vie
+
 Empty Database
     Empty Db
