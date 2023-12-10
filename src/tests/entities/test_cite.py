@@ -40,3 +40,11 @@ class TestCite(unittest.TestCase):
 
     def test_compare_gt(self):
         self.assertTrue(Cite("xyz", "book") > Cite("abc", "book"))
+    
+    def test_compare_le(self):
+        self.assertTrue(Cite("aa", "book") <= Cite("ab", "book"))
+        self.assertTrue(Cite("abc", "book") <= Cite("abc", "article"))
+    
+    def test_compare_ge(self):
+        self.assertTrue(Cite("xyz", "book") >= Cite("abc", "book"))
+        self.assertTrue(Cite("abc", "book") >= Cite("abc", "article"))
