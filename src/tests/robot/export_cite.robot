@@ -10,10 +10,10 @@ Export Cites Creates File
     Select Export Cites
     Input    robot_test
     Run App
-    File Should Exist   ./data/test/robot_test.bib
+    File Should Exist    ./data/test/robot_test.bib
 
 Exported File Contains Cites
-    ${file}=   Get File    ./data/test/robot_test.bib
+    ${file}=    Get File    ./data/test/robot_test.bib
     Should Contain    ${file}    @article{libsvm,
     Should Contain    ${file}    author = {Chang Chih-Chung and Lin Chih-Jen},
     Should Contain    ${file}    title = {LIBSVM: A Library for Support Vector Machines},

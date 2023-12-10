@@ -1,10 +1,9 @@
 import os
 
+from config import DATA_DIRECTORY
 from infrastructure.console_io import ConsoleIO
 from services.logic import Logic
 from ui.view import View
-
-from config import DATA_DIRECTORY
 
 
 class ExportCiteView(View):
