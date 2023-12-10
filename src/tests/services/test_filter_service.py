@@ -23,15 +23,15 @@ class TestFilterService(unittest.TestCase):
     def test_init(self):
         self.assertIsNotNone(self.filter_service)
 
-    def test_name_filter_returns_filtered_names(self):
+    def test_title_filter_returns_filtered_titles(self):
         self.assertEqual(
             self.filter_service.filter_by_title("Tes"), [self.cites[0], self.cites[1]]
         )
 
-    def test_name_filter_returns_all_names_with_empty_search(self):
+    def test_title_filter_returns_all_titles_with_empty_search(self):
         self.assertEqual(self.filter_service.filter_by_title(""), self.cites)
 
-    def test_name_filter_returns_empty_list_when_no_matches(self):
+    def test_title_filter_returns_empty_list_when_no_matches(self):
         self.assertEqual(self.filter_service.filter_by_title("Ei löydy"), [])
 
     def test_author_filter_returns_filtered_cites(self):
@@ -48,5 +48,5 @@ class TestFilterService(unittest.TestCase):
     def test_author_filter_returns_all_cites_with_empty_search(self):
         self.assertEqual(self.filter_service.filter_by_author(""), self.cites)
 
-    def test_name_filter_returns_empty_list_when_no_matches(self):
+    def test_author_filter_returns_empty_list_when_no_matches(self):
         self.assertEqual(self.filter_service.filter_by_author("Ei löydy"), [])
