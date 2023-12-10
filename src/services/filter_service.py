@@ -8,9 +8,6 @@ class FilterService:
     def __init__(self, repository=cite_repository) -> None:
         self.repository = repository
 
-    # Vähän epävarma onko toi palautusmuoto list[Cite]
-    # mutta tehkää niinkun parhaaks näätte :)
-
     def filter_by_title(self, name: str) -> list[Cite]:
         """Hakee viitteet annetun hakusanan perusteella
 
