@@ -8,10 +8,12 @@ from tests.stubs.stub_cite_repository import StubCiteRepository
 class TestFilterService(unittest.TestCase):
     def setUp(self) -> None:
         self.cites = [
-            Cite(1, "book", ["Author1", "Author2"], {"title": "Testi1", "year": 1234}),
-            Cite(2, "article", ["Pekka"], {"title": "123tes12", "year": 1000}),
             Cite(
-                3,
+                "1", "book", ["Author1", "Author2"], {"title": "Testi1", "year": 1234}
+            ),
+            Cite("Kokeilu2", "article", ["Pekka"], {"title": "123tes12", "year": 1000}),
+            Cite(
+                "3",
                 "book",
                 ["Author", "Author2", "Mikko"],
                 {"title": "Moiit", "year": 1234},
@@ -50,3 +52,12 @@ class TestFilterService(unittest.TestCase):
 
     def test_author_filter_returns_empty_list_when_no_matches(self):
         self.assertEqual(self.filter_service.filter_by_author("Ei löydy"), [])
+
+    def test_id_filter_returns_filtered_cites(self):
+        self.assertEqual(self.filter_service.filter_by_id("1"), [self.cites[0]])
+
+    def test_id_filter_returns_empty_list_when_no_matches(self):
+        self.assertEqual(self.filter_service.filter_by_id("Ei löydy"), [])
+
+    def test_id_filter_substring_returns_filtered_cites(self):
+        self.assertEqual(self.filter_service.filter_by_id("Kokei"), [self.cites[1]])
