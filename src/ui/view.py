@@ -18,7 +18,7 @@ class View(ABC):
 
     @abstractmethod
     def start(self) -> None:
-        """Käynnistää näkymän."""
+        """Käynnistää näkymän ja tulostaa ohjeen."""
         self._show_help()
 
     def _show_help(self) -> None:
