@@ -37,8 +37,6 @@ class AddCiteView(View):
         type = self._ask_string("Syötä viitteen tyyppi: ")
         id = self._ask_string("Syötä viitteen id: ")
 
-        # Seuraavaksi tulisi tyypistä riippuen eri kenttien kyselyitä
-
         authors = self._ask_string(
             "Syötä kirjailijat (authors), erota pilkulla: "
         ).split(", ")
