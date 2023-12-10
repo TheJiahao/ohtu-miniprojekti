@@ -2,7 +2,7 @@
 
 from repositories.cite_repository import CiteRepository
 from services.logic import Logic
-from tests.entities.stub_io import StubIO
+from tests.stubs.stub_io import StubIO
 from ui.ui import UI
 
 

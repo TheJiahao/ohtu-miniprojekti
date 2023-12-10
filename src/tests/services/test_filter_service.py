@@ -1,8 +1,8 @@
 import unittest
 
 from entities.cite import Cite
-from repositories.stub_cite_repository import StubCiteRepository
 from services.filter_service import FilterService
+from tests.stubs.stub_cite_repository import StubCiteRepository
 
 
 class TestFilterService(unittest.TestCase):
