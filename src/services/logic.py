@@ -1,5 +1,7 @@
+from typing import Callable
+
 from entities.cite import Cite
-from repositories.cite_repository import cite_repository
+from repositories.cite_repository import CiteRepository, cite_repository
 from services.filter_service import FilterService
 
 
@@ -14,8 +16,12 @@ class Logic:
             oletuksena cite_repository.py:n sisällä luotu
         """
 
-        self.repository = repository
-        self.__filter_service = filter_service
+        self.repository: CiteRepository = repository
+        self.__filters: dict[str, Callable] = {
+            "id": filter_service.filter_by_id,
+            "name": filter_service.filter_by_name,
+            "author": filter_service.filter_by_author,
+        }
 
     def filter_cites(self, search: str, filters: set[str]) -> list[Cite]:
         """Hakee hakusanan ja tyypin mukaiset viitteet
@@ -27,17 +33,13 @@ class Logic:
         Returns:
             list[Cite]: lista Cite olioita
         """
-        if not filters:
-            return []
 
-        if "name" in filters:
-            return self.__filter_service.filter_by_name(search)
-        elif "author" in filters:
-            return self.__filter_service.filter_by_author(search)
-        elif "id" in filters:
-            return self.__filter_service.filter_by_id(search)
+        result = set()
 
-        return []
+        for filter in filters:
+            result = result | set(self.__filters[filter](search))
+
+        return list(result)
 
     def create_cite(self, id: str, type: str, authors: list[str], fields: dict):
         """Lisää uuden viitteen.
