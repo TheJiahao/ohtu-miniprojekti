@@ -3,8 +3,8 @@ import unittest
 from unittest.mock import Mock
 
 from config import DATA_DIRECTORY
-from services.export_service import ExportService
 from entities.cite import Cite
+from services.export_service import ExportService
 
 
 class TestExportService(unittest.TestCase):
