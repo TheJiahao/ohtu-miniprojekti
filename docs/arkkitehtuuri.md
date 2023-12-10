@@ -111,7 +111,7 @@ class ExportService {
 class FilterService {
     +filter_by_name(name: str, )
     +filter_by_author(author: str)
-    +filter_by_tag(tag: str)
+    +filter_by_id(tag: str)
 }
 ```
 
