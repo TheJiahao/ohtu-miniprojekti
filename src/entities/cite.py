@@ -1,7 +1,7 @@
 import toml
 
 
-class Cite:  # pylint: disable=too-few-public-methods
+class Cite:
     """Luokka, joka kuvaa viitettä.
 
     Attributes:
