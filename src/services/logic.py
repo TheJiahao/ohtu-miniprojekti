@@ -23,21 +23,22 @@ class Logic:
             "author": filter_service.filter_by_author,
         }
 
-    def filter_cites(self, search: str, filters: set[str]) -> list[Cite]:
-        """Hakee hakusanan ja tyypin mukaiset viitteet
+    def filter_cites(self, keyword: str, filters: set[str]) -> list[Cite]:
+        """Palauttaa viitteet, jotka toteuttavat ainakin yhden hakukriteereistä
+        annetulla hakusanalla.
 
         Args:
-            search (str): hakusana
-            filters (set[str]): setti filtereitä, esim. nimi, vuosi, kirjoittajat
+            keyword (str): Hakusana.
+            filters (set[str]): Joukko suodattimia. Tuetut: nimi, vuosi, kirjoittajat
 
         Returns:
-            list[Cite]: lista Cite olioita
+            list[Cite]: Hakukriteerien suodattamat viitteet.
         """
 
         result = set()
 
         for filter in filters:
-            result = result | set(self.__filters[filter](search))
+            result = result | set(self.__filters[filter](keyword))
 
         return list(result)
 
