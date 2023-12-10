@@ -31,7 +31,7 @@ Search By Author Without Cites Should Not Return Anything
 
 Search By Title Without Cites Should Not Return Anything
     Select Search Cite
-    Input    nimi
+    Input    title
     Input    Ihminen
     Run App
     Output Should Not Contain    libsvm
