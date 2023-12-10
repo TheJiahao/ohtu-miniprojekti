@@ -29,7 +29,7 @@ class Logic:
 
         Args:
             keyword (str): Hakusana.
-            filters (set[str]): Joukko suodattimia. Tuetut: nimi, vuosi, kirjoittajat
+            filters (set[str]): Joukko suodattimia. Tuetut: id, title, author
 
         Returns:
             list[Cite]: Hakukriteerien suodattamat viitteet.
