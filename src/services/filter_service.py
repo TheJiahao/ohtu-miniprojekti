@@ -11,7 +11,7 @@ class FilterService:
     # Vähän epävarma onko toi palautusmuoto list[Cite]
     # mutta tehkää niinkun parhaaks näätte :)
 
-    def filter_by_name(self, name: str) -> list[Cite]:
+    def filter_by_title(self, name: str) -> list[Cite]:
         """Hakee viitteet annetun hakusanan perusteella
 
         Args:

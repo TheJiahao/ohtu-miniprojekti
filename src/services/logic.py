@@ -19,7 +19,7 @@ class Logic:
         self.repository: CiteRepository = repository
         self.__filters: dict[str, Callable] = {
             "id": filter_service.filter_by_id,
-            "name": filter_service.filter_by_name,
+            "title": filter_service.filter_by_title,
             "author": filter_service.filter_by_author,
         }
 

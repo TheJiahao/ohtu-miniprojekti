@@ -9,7 +9,7 @@ class TestLogic(unittest.TestCase):
     def initialize_filter_service(self) -> Mock:
         filter_service = Mock()
         filter_service.filter_by_id.return_value = [self.id_test]
-        filter_service.filter_by_name.return_value = [self.name_test]
+        filter_service.filter_by_title.return_value = [self.title_test]
         filter_service.filter_by_author.return_value = [self.author_test]
 
         return filter_service
@@ -22,11 +22,11 @@ class TestLogic(unittest.TestCase):
 
     def setUp(self):
         self.id_test = Cite("id_test", "book", fields={"title": ""})
-        self.name_test = Cite("title", "article", fields={"title": "title_test"})
+        self.title_test = Cite("title", "article", fields={"title": "title_test"})
         self.author_test = Cite(
             "author", "journal", ["author_test"], fields={"title": ""}
         )
-        self.cites = [self.id_test, self.name_test, self.author_test]
+        self.cites = [self.id_test, self.title_test, self.author_test]
 
         self.filter_service_mock = self.initialize_filter_service()
         self.cite_repository_mock = self.initialize_cite_repository()
@@ -42,11 +42,11 @@ class TestLogic(unittest.TestCase):
 
         self.assertEqual(get_all, self.cites)
 
-    def test_filter_cites_by_name(self):
-        result = self.logic.filter_cites("Test", {"name"})
+    def test_filter_cites_by_title(self):
+        result = self.logic.filter_cites("Test", {"title"})
 
         self.assertEqual(len(result), 1)
-        self.assertIn(self.name_test, result)
+        self.assertIn(self.title_test, result)
 
     def test_filter_cites_by_id(self):
         result = self.logic.filter_cites("Test", {"id"})
@@ -61,7 +61,7 @@ class TestLogic(unittest.TestCase):
         self.assertIn(self.author_test, result)
 
     def test_filter_cites_by_multiple_filters_and_multiple_hit(self):
-        result = self.logic.filter_cites("Test", {"id", "name", "author"})
+        result = self.logic.filter_cites("Test", {"id", "title", "author"})
 
         self.assertEqual(len(result), 3)
         self.assertEqual(sorted(self.cites), sorted(result))

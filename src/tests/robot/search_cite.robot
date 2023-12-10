@@ -15,7 +15,7 @@ Search By Author Should Succeed
 
 Search By Title Should Succeed
     Select Search Cite
-    Input    nimi
+    Input    otsikko
     Input    An introduction to computer science for non-majors using principles of computation
     Run App
     Output Should Contain    An introduction to computer science for non-majors using principles of computation

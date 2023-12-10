@@ -7,8 +7,8 @@ class FilterCiteView(View):
     """Luokka, joka vastaa viitteiden hakunäkymästä."""
 
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
-        self._filtertypes: dict[int, str] = {
-            "nimi": "name",
+        self.__filter_types: dict[str, str] = {
+            "otsikko": "title",
             "kirjailija": "author",
             "id": "id",
         }

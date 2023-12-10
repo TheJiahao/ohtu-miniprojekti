@@ -25,14 +25,14 @@ class TestFilterService(unittest.TestCase):
 
     def test_name_filter_returns_filtered_names(self):
         self.assertEqual(
-            self.filter_service.filter_by_name("Tes"), [self.cites[0], self.cites[1]]
+            self.filter_service.filter_by_title("Tes"), [self.cites[0], self.cites[1]]
         )
 
     def test_name_filter_returns_all_names_with_empty_search(self):
-        self.assertEqual(self.filter_service.filter_by_name(""), self.cites)
+        self.assertEqual(self.filter_service.filter_by_title(""), self.cites)
 
     def test_name_filter_returns_empty_list_when_no_matches(self):
-        self.assertEqual(self.filter_service.filter_by_name("Ei löydy"), [])
+        self.assertEqual(self.filter_service.filter_by_title("Ei löydy"), [])
 
     def test_author_filter_returns_filtered_cites(self):
         self.assertEqual(
