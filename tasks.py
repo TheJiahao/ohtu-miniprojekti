@@ -19,4 +19,12 @@ def coverage(ctx):
 
 @task
 def refactor(ctx):
-    ctx.run("black src && pylint src", pty=True)
+    format(ctx)
+    ctx.run("pylint src", pty=True)
+
+
+@task
+def format(ctx):
+    ctx.run("isort --profile black .")
+    ctx.run("black src")
+    ctx.run("robotidy --diff src/tests/robot", pty=True)
