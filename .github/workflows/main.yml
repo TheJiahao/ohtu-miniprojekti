@@ -53,7 +53,7 @@ jobs:
             - name: Set up
               uses: ./setup-action
             - name: Format code
-              run: poetry run black src && poetry run isort --profile black .
+              run: poetry run invoke format
             - name: Commit and push changes
               uses: stefanzweifel/git-auto-commit-action@v5
               with:
