@@ -65,3 +65,6 @@ class Cite:
 
     def __ge__(self, other: "Cite") -> bool:
         return self > other or self == other
+
+    def __hash__(self) -> int:
+        return hash(self.id)
