@@ -13,9 +13,15 @@ class FilterCiteView(View):
             "id": "id",
         }
 
-        help_message = "\n".join(
-            ["nimi: nimi", "kirjailija: kirjailija", "id: id", "Syötä hakutyyppi: "]
+        help_message = ["Tällä hetkellä tuetut hakutyypit"]
+        help_message.extend(
+            [
+                f"{name}: {translation}"
+                for name, translation in self.__filter_types.items()
+            ]
         )
+
+        help_message = "\n".join(help_message)
 
         super().__init__("Viitteiden haku", help_message, logic, io)
 
@@ -24,20 +30,23 @@ class FilterCiteView(View):
 
         super().start()
 
-        try:
-            type = self._filtertypes[self._io.read()]
-        except (ValueError, KeyError):
-            self._io.write("virheellinen syöte")
-            return
+        keyword = ""
+        help_messages = {
+            "title": "Hae otsikolla: ",
+            "author": "Hae kirjoittajalla: ",
+            "id": "Hae id:llä: ",
+        }
 
-        match type:
-            case "name":
-                search = self._ask_string("Hae nimellä: ")
-            case "author":
-                search = self._ask_string("Hae kirjoittajalla: ")
-            case "id":
-                search = self._ask_string("Hae id:llä: ")
+        try:
+            type = self._ask_string("Syötä hakutyyppi: ")
+            type = self.__filter_types[type]
+
+            keyword = self._ask_string(help_messages[type])
+
+        except KeyError:
+            self._io.write("Virheellinen syöte")
+            return
 
         filters = {type}
 
-        super().show_cites(self._logic.filter_cites(search, filters))
+        self.show_cites(self._logic.filter_cites(keyword, filters))
