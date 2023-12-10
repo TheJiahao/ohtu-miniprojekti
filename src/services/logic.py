@@ -3,6 +3,7 @@ from typing import Callable
 from entities.cite import Cite
 from repositories.cite_repository import CiteRepository, cite_repository
 from services.filter_service import FilterService
+from services.export_service import ExportService
 
 
 class Logic:
@@ -79,3 +80,9 @@ class Logic:
         """Poistaa kaikki viitteet"""
 
         self.repository.remove_all_cites()
+
+    def export(self, path: str, format: str, cites: list[Cite]) -> None:
+        """Kirjoittaa viitteet tiedostoon"""
+
+        service = ExportService()
+        return service.export(path, format, cites)
