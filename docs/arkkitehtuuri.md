@@ -29,11 +29,14 @@ View <|-- UI
 View <|-- FilterCiteView
 View <|-- AddCiteView
 View <|-- ListCiteView
+View <|-- RemoveCiteView
+View <|-- ExportCiteView
 
 UI --> FilterCiteView
 UI --> AddCiteView
 UI --> ListCiteView
 UI --> RemoveCiteView
+UI --> ExportCiteView
 
 Logic ..> Cite
 Logic --> CiteRepository
@@ -65,7 +68,7 @@ class View {
     #show_help()
     #show_cites(cites: list[Cite])
     #ask_string(help_message: str)
-    #ask_confirm(help_message: str, confirm: str)
+    #ask_confirm(question: str)
 }
 
 class UI {
