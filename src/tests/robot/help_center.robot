@@ -5,7 +5,7 @@ Test Teardown       Empty Database
 
 
 *** Test Cases ***
-Command Info Not Shown At Beginning 
+Command Info Not Shown At Beginning
     Run App
     Output Should Not Contain    lisää
     Output Should Not Contain    listaa
@@ -13,8 +13,7 @@ Command Info Not Shown At Beginning
     Output Should Not Contain    poista
     Output Should Not Contain    lopeta
 
-
-Command Info Is Shown When Help Is Called 
+Command Info Is Shown When Help Is Called
     Input    help
     Run App
     Output Should Contain    lisää
@@ -22,4 +21,3 @@ Command Info Is Shown When Help Is Called
     Output Should Contain    hae
     Output Should Contain    poista
     Output Should Contain    lopeta
-
