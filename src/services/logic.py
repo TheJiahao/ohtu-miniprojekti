@@ -25,7 +25,7 @@ class Logic:
             filters (set[str]): setti filtereitä, esim. nimi, vuosi, kirjoittajat
 
         Returns:
-            List[Cite]: lista Cite olioita
+            list[Cite]: lista Cite olioita
         """
         if not filters:
             return []
