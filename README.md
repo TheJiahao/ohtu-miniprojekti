@@ -12,4 +12,5 @@ Ohtu miniprojekti
 - [Arkkitehtuuri](/docs/arkkitehtuuri.md)
 - [Retrodokumentti](retro.md)
 - [Hyväksymistestit](/src/tests/robot/)
+- [Raportti](https://github.com/TheJiahao/ohtu-miniprojekti/blob/main/raportti.md)
 
