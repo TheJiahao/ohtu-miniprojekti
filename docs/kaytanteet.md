@@ -19,6 +19,4 @@
 ### Git
 
 - Commit message: Käskymuodossa, kuten "Add jotain", "Fix jotain", "Implement jotain"
-- Tee user storyyn liittyvät muutokset omaan user story-haaraan, esim. `us1`, `us2`, jne.
-  - Kun user story on valmis definition of donen tasolla, niin merkkaa valmiiksi
-  - Pushaa vain testit läpäisevää koodia
+- Pieniä committeja
