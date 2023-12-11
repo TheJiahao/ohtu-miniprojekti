@@ -7,7 +7,7 @@ Test Setup      Clear Database And Add Sample Cites
 *** Test Cases ***
 Search By Author Should Succeed
     Select Search Cite
-    Input    kirjailija
+    Input    tekijä
     Input    Newton Isaac
     Run App
     Output Should Contain    newton1999principia
@@ -22,7 +22,7 @@ Search By Title Should Succeed
 
 Search By Author Without Cites Should Not Return Anything
     Select Search Cite
-    Input    kirjailija
+    Input    tekijä
     Input    Ihminen
     Run App
     Output Should Not Contain    libsvm

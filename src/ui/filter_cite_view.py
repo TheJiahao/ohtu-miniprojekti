@@ -9,7 +9,7 @@ class FilterCiteView(View):
     def __init__(self, logic: Logic, io: ConsoleIO) -> None:
         self.__filter_types: dict[str, str] = {
             "otsikko": "title",
-            "kirjailija": "author",
+            "tekijä": "author",
             "id": "id",
         }
 

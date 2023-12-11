@@ -72,7 +72,7 @@ class CiteRepository:
         return dict(types)
 
     def get_all_authors(self) -> dict[str, list[str]]:
-        """Hakee tietokannasta viitteen kirjailijat"""
+        """Hakee tietokannasta viitteen tekijät."""
         authors = {}
         for id in self.get_all_ids():
             authors_query = self._database.cursor.execute(
