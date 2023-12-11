@@ -28,7 +28,9 @@
 
 Käynnistä ohjelma, syötä jokin näytöllä olevasta komennoista ja seuraa näytölle tulevia ohjeita.
 Ohjelmassa on seuraavat toiminnallisuudet:
-- Viitteiden lisäys
-- Viitteiden listaus
-- Viitteiden haku
-- Viitteen poisto id:n perusteella
+
++ Viitteiden lisäys
++ Viitteiden listaus
++ Viitteiden haku
++ Viitteen poisto id:n perusteella
++ Viitteiden vienti BibTeX-muotoon
