@@ -16,9 +16,7 @@ class ExportCiteView(View):
         """Vie kaikki viitteet."""
 
         super().start()
-        name = self._ask_string(
-            "Syötä viitetiedoston nimi: "
-        )
+        name = self._ask_string("Syötä viitetiedoston nimi: ")
 
         if name == "robot_test":
             path = os.path.join(DATA_DIRECTORY, "test", name)
