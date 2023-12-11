@@ -32,5 +32,10 @@ Ohjelmassa on seuraavat toiminnallisuudet:
 + Viitteiden lisäys
 + Viitteiden listaus
 + Viitteiden haku
-+ Viitteen poisto id:n perusteella
+    + id:n perusteella
+    + tekijän perusteella
+    + otsikon perusteella
++ Viitteen poisto
+    + id:n perusteella
+    + kaikkien viitteiden poisto
 + Viitteiden vienti BibTeX-muotoon
