@@ -1,14 +1,13 @@
 import os
+from pathlib import Path
 
-from dotenv import load_dotenv
-
-dirname = os.path.dirname(__file__)
+from dotenv import load_dotenv, find_dotenv
 
 try:
-    load_dotenv(dotenv_path=os.path.join(dirname, "..", ".env"))
+    load_dotenv(find_dotenv())
 except FileNotFoundError:
     pass
 
-DATA_DIRECTORY = os.path.join(dirname, "..", "data")
+DATA_DIRECTORY = Path(__file__).parents[1] / "data"
 DATABASE_FILENAME = os.getenv("DATABASE_FILENAME") or "database.db"
-DATABASE_FILE_PATH = os.path.join(DATA_DIRECTORY, DATABASE_FILENAME)
+DATABASE_FILE_PATH = DATA_DIRECTORY / DATABASE_FILENAME
