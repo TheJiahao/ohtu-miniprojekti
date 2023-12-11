@@ -81,8 +81,18 @@ class Logic:
 
         self.repository.remove_all_cites()
 
-    def export(self, path: str, format: str, cites: list[Cite]) -> None:
-        """Kirjoittaa viitteet tiedostoon"""
+    def export(self, path: str, format: str, cites: list[Cite]) -> str:
+        """
+        Tallentaa viitteet annettuun tiedostoon.
+
+        Args:
+            path (str): Polku, johon tallennetaan.
+            format (str): Tiedostomuoto.
+            cites (list[Cite]): Tallennettavat viitteet.
+
+        Returns:
+            str: Polku, johon tallennettiin.
+        """
 
         service = ExportService()
         return service.export(path, format, cites)

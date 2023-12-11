@@ -18,7 +18,7 @@ class ExportService:
 
         self.__exporters: dict = exporters or {"bibtex": BibtexExporter()}
 
-    def export(self, path: str, format: str, cites: list[Cite]) -> None:
+    def export(self, path: str, format: str, cites: list[Cite]) -> str:
         """
         Kirjoittaa viitteet annettuun tiedostoon.
 
@@ -27,12 +27,17 @@ class ExportService:
             format (str): Tiedostomuoto. Tuetut muodot: bibtex
             cites (list[Cite]): Kirjoitettavat viitteet.
 
+        Returns:
+            str: Polku, johon viitteet tallennettiin.
+
         Raises:
             ValueError: Tiedostomuoto ei ole tuettu.
         """
 
         try:
-            self.__exporters[format].export(path, cites)
+            path = self.__exporters[format].export(path, cites)
+
+            return path
 
         except KeyError as exception:
             raise ValueError(

@@ -23,4 +23,6 @@ class ExportCiteView(View):
         else:
             path = os.path.join(DATA_DIRECTORY, name)
 
-        self._logic.export(path, "bibtex", self._logic.get_all_cites())
+        path = self._logic.export(path, "bibtex", self._logic.get_all_cites())
+
+        self._io.write(f"Viitteet tallennettu polkuun {os.path.abspath(path)}")

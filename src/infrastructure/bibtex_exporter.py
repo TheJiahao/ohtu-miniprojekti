@@ -6,13 +6,16 @@ from entities.cite import Cite
 class BibtexExporter:
     """Luokka, joka vastaa viitteiden muuntamisesta BibTeX-muotoon."""
 
-    def export(self, path: str, cites: list[Cite]) -> None:
+    def export(self, path: str, cites: list[Cite]) -> str:
         """
         Kirjoittaa viitteet BiBTeX-muodossa tiedostoon.
 
         Args:
             path (str): Polku kirjoitettavaan tiedostoon.
             cites (list[Cite]): Kirjoitettavat viitteet.
+
+        Returns:
+            str: Polku, johon viitteet tallennettiin.
         """
 
         file_basename, file_extension = os.path.splitext(path)
@@ -24,6 +27,8 @@ class BibtexExporter:
 
         with open(path, mode="w", encoding="utf-8") as file:
             file.write(data)
+
+        return path
 
     def __dump(self, cites: list[Cite]) -> str:
         """Palauttaa viitteet BibTeX-muodossa, aakkosjärjestyksessä id:n perusteella.
