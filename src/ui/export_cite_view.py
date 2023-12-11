@@ -17,7 +17,7 @@ class ExportCiteView(View):
 
         super().start()
         name = self._ask_string(
-            "Syötä viitetiedoston nimi (ilman tiedoston päätettä): "
+            "Syötä viitetiedoston nimi: "
         )
 
         if name == "robot_test":
