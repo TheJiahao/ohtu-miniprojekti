@@ -35,20 +35,25 @@ class AddCiteView(View):
         super().start()
 
         type = self._ask_string("Syötä viitteen tyyppi: ")
-        id = self._ask_string("Syötä viitteen id: ")
+        accepted_types = ["book", "article", "journal"]
+        for a_type in accepted_types:
+            if a_type == type:
+                id = self._ask_string("Syötä viitteen id: ")
 
-        authors = [
-            author.strip()
-            for author in self._ask_string(
-                "Syötä tekijät (authors), erota pilkulla: "
-            ).split(",")
-        ]
-        fields["title"] = self._ask_string("Syötä otsikko (title): ")
-        fields["year"] = self._ask_string("Syötä vuosi (year): ")
+                authors = [
+                    author.strip()
+                    for author in self._ask_string(
+                        "Syötä tekijät (authors), erota pilkulla: "
+                    ).split(",")
+                ]
+                fields["title"] = self._ask_string("Syötä otsikko (title): ")
+                fields["year"] = self._ask_string("Syötä vuosi (year): ")
 
-        try:
-            self._logic.create_cite(id, type, authors, fields)
-            self._io.write("Viite lisätty.\n")
+                try:
+                    self._logic.create_cite(id, type, authors, fields)
+                    self._io.write("Viite lisätty.\n")
+                    return
 
-        except sqlite3.IntegrityError:
-            self._io.write("Viitteen lisäys epäonnistui.\n")
+                except sqlite3.IntegrityError:
+                    self._io.write("Viitteen lisäys epäonnistui.\n")
+        self._io.write("Virheellinen syöte. Sallitut syötteet: book, article, journal")

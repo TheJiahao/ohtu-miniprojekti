@@ -21,10 +21,11 @@ class RemoveCiteView(View):
         try:
             type = self._choices[self._io.read()]
         except (ValueError, KeyError):
-            self._io.write("virheellinen syöte")
+            self._io.write("Virheellinen syöte. Sallitut syötteet: id, kaikki")
             return
 
         match type:
+
             case "id":
                 choice = self._ask_string("Syötä viitteen id: ")
                 self._logic.remove_cite(choice)

@@ -44,7 +44,7 @@ class FilterCiteView(View):
             keyword = self._ask_string(help_messages[type])
 
         except KeyError:
-            self._io.write("Virheellinen syöte")
+            self._io.write("Virheellinen syöte. Sallitut syötteet: otsikko, tekijä, id")
             return
 
         filters = {type}
