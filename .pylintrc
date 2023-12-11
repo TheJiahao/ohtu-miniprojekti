@@ -1,6 +1,6 @@
 [MAIN]
 load-plugins = pylint.extensions.docparams
-ignore=tests, main.py
+ignore=tests, main.py, AppLibrary.py
 
 [MESSAGE CONTROL]
 

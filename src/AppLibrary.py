@@ -1,5 +1,3 @@
-# pylint: skip-file
-
 from repositories.cite_repository import CiteRepository
 from services.logic import Logic
 from tests.stubs.stub_io import StubIO
