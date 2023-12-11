@@ -37,9 +37,12 @@ class AddCiteView(View):
         type = self._ask_string("Syötä viitteen tyyppi: ")
         id = self._ask_string("Syötä viitteen id: ")
 
-        authors = self._ask_string(
-            "Syötä kirjailijat (authors), erota pilkulla: "
-        ).split(", ")
+        authors = [
+            author.strip()
+            for author in self._ask_string(
+                "Syötä kirjailijat (authors), erota pilkulla: "
+            ).split(",")
+        ]
         fields["title"] = self._ask_string("Syötä otsikko (title): ")
         fields["year"] = self._ask_string("Syötä vuosi (year): ")
 

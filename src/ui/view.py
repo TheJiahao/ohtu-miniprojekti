@@ -50,7 +50,7 @@ class View(ABC):
         value = self._io.read()
         self._io.write("")
 
-        return value
+        return value.strip()
 
     def _ask_confirm(self, question: str) -> bool:
         self._io.write(f"{question} (vahvista/lopeta): ", end="")
