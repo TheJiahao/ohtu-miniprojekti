@@ -25,7 +25,6 @@ class RemoveCiteView(View):
             return
 
         match type:
-
             case "id":
                 choice = self._ask_string("Syötä viitteen id: ")
                 self._logic.remove_cite(choice)
