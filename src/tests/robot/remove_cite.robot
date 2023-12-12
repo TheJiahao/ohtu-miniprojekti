@@ -41,7 +41,7 @@ Remove Cite By Incorrect Removal Method Should Not Remove Anything
 
 *** Keywords ***
 Incorrect Input
-    Output Should Contain    virheellinen syöte
+    Output Should Contain    Virheellinen syöte
 
 Select Remove By Id
     Input    id
