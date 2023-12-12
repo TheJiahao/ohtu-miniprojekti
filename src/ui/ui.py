@@ -70,4 +70,4 @@ class UI(View):
         """Tulostaa sovelluksen käynnistyksen yhteydessä näytettävät tervetuloviestit."""
 
         self._io.write("Tervetuloa viitteidenhallinta-sovellukseen!")
-        self._io.write("Syötä 'help' nähdäksesi eri komennot.")
+        self._io.write("Syötä 'help' nähdäksesi eri komennot.\n")
