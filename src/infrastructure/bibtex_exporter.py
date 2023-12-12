@@ -1,4 +1,4 @@
-import os
+from pathlib import PosixPath
 
 from entities.cite import Cite
 
@@ -6,7 +6,7 @@ from entities.cite import Cite
 class BibtexExporter:
     """Luokka, joka vastaa viitteiden muuntamisesta BibTeX-muotoon."""
 
-    def export(self, path: str, cites: list[Cite]) -> str:
+    def export(self, path: PosixPath, cites: list[Cite]) -> str:
         """
         Kirjoittaa viitteet BiBTeX-muodossa tiedostoon.
 
@@ -18,14 +18,9 @@ class BibtexExporter:
             str: Polku, johon viitteet tallennettiin.
         """
 
-        file_basename, file_extension = os.path.splitext(path)
-
-        if file_extension != ".bib":
-            path = file_basename + ".bib"
-
         data = self.__dump(cites)
 
-        with open(path, mode="w", encoding="utf-8") as file:
+        with open(path.with_suffix(".bib"), mode="w", encoding="utf-8") as file:
             file.write(data)
 
         return path

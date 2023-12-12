@@ -1,4 +1,3 @@
-import os
 import unittest
 from unittest.mock import Mock
 
@@ -11,7 +10,7 @@ class TestExportService(unittest.TestCase):
     def setUp(self):
         self.exporters = {"bibtex": Mock(), "json": Mock(), "toml": Mock()}
         self.export_service = ExportService(self.exporters)
-        self.path = os.path.join(DATA_DIRECTORY, "test", "exported_file")
+        self.path = DATA_DIRECTORY / "test" / "exported_file"
         self.cites = [Cite("cite1", "book"), Cite("cite2", "article")]
 
     def test_export_with_unsupported_format_raises_exception(self):

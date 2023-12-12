@@ -9,7 +9,7 @@ from infrastructure.bibtex_exporter import BibtexExporter
 class TestBibtexExporter(unittest.TestCase):
     def setUp(self):
         self.exporter = BibtexExporter()
-        self.path = os.path.join(DATA_DIRECTORY, "test", "test_file.bib")
+        self.path = DATA_DIRECTORY / "test" / "test_file.bib"
 
         try:
             os.remove(self.path)
@@ -125,17 +125,17 @@ year = {1993},
         self.assertEqual(result, expected)
 
     def test_export_adds_file_extension(self):
-        file_basename = os.path.splitext(self.path)[0]
+        file_stem = self.path.with_suffix("")
 
         try:
-            os.remove(file_basename)
+            os.remove(file_stem)
         except FileNotFoundError:
             pass
 
-        self.exporter.export(file_basename, self.cites)
+        self.exporter.export(file_stem, self.cites)
 
         self.assertNotEqual(os.path.getsize(self.path), 0)
-        self.assertFalse(os.path.exists(file_basename))
+        self.assertFalse(file_stem.exists())
 
     def test_export_empty_list_writes_nothing(self):
         self.exporter.export(self.path, [])
